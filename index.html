@@ -6,10 +6,10 @@
     <title>ערן בוחבוט | הנדסה ועיצוב</title>
     <style>
         :root {
-            --bg-color: #f7f9fa; /* אפור בהיר וסטרילי */
-            --text-main: #2b2b2b; /* כהה אבל לא שחור מוחלט */
+            --bg-color: #f7f9fa; 
+            --text-main: #2b2b2b; 
             --text-muted: #5e6a75;
-            --accent: #4a90e2; /* כחול טכנולוגי נקי */
+            --accent: #4a90e2; 
             --glass-bg: rgba(255, 255, 255, 0.7);
         }
 
@@ -19,14 +19,13 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            /* רשת נקודות עדינה ברקע שנותנת תחושת שרטוט */
             background-image: radial-gradient(#d5d7d8 1px, transparent 1px);
             background-size: 20px 20px; 
         }
 
         header {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px); /* אפקט זכוכית */
+            backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 1.5rem 3rem;
@@ -35,12 +34,18 @@
             align-items: center;
             position: sticky;
             top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 2rem;
             font-size: 0.95rem;
             letter-spacing: 0.5px;
             transition: color 0.3s;
@@ -48,6 +53,19 @@
 
         nav a:hover {
             color: var(--text-main);
+        }
+
+        .lang-btn {
+            border: 1px solid var(--text-muted);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--text-main);
+            background-color: rgba(0,0,0,0.05);
         }
 
         .container {
@@ -58,13 +76,13 @@
 
         .hero {
             margin-bottom: 5rem;
-            border-right: 3px solid var(--accent); /* פס כחול מינימליסטי */
+            border-right: 3px solid var(--accent);
             padding-right: 1.5rem;
         }
 
         .hero h1 {
             font-size: 2.8rem;
-            font-weight: 300; /* פונט דק וסטרילי */
+            font-weight: 300;
             margin: 0 0 1rem 0;
             letter-spacing: -1px;
         }
@@ -80,6 +98,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-bottom: 5rem;
         }
 
         .project-card {
@@ -87,7 +106,7 @@
             border: 1px solid #e1e4e8;
             padding: 2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* צל עדין מאוד */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .project-card:hover {
@@ -107,15 +126,43 @@
             color: var(--text-muted);
             line-height: 1.6;
         }
+
+        /* עיצוב לאזור צור קשר */
+        .contact-section {
+            border-top: 1px solid #e1e4e8;
+            padding-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
         <div style="font-weight: 600; letter-spacing: 1.5px;">ERAN BUHBUT</div>
-        <nav>
+        <nav class="nav-links">
             <a href="#about">אודות</a>
             <a href="#projects">פרויקטים</a>
             <a href="#contact">צור קשר</a>
+            <a href="en.html" class="lang-btn">EN</a>
         </nav>
     </header>
 
@@ -139,6 +186,17 @@
                     <h3 class="project-title">עיצוב חלקים פונקציונליים</h3>
                     <p class="project-desc">תכנון ב-Creo ומידול תלת-ממדי של חלקים מכניים בהדפסת PETG ו-TPU, ופרסומם בפלטפורמות קוד פתוח.</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>יצירת קשר</h2>
+            <p class="project-desc">ניתן למצוא את המודלים שלי, לעיין בקוד שכתבתי, או ליצור איתי קשר ישיר דרך הערוצים הבאים:</p>
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com" class="contact-link">Email</a>
+                <a href="https://github.com/eranbuhbut" class="contact-link" target="_blank">GitHub</a>
+                <a href="https://makerworld.com/en/" class="contact-link" target="_blank">MakerWorld</a>
+                <a href="#" class="contact-link" target="_blank">Music Production</a>
             </div>
         </section>
     </div>
