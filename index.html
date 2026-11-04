@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8ebed;--panel:#f5f7f8;--ink:#121619;--mut:#5d666d;--line:#c8ced2;--acc:#e8892b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Heebo,"Segoe UI",Arial,sans-serif;font-weight:300;line-height:1.65;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+header{display:flex;justify-content:space-between;align-items:center;padding-block:22px;border-bottom:1px solid var(--line)}
+header nav{display:flex;gap:26px;font-size:15px}
+header nav a{text-decoration:none;color:var(--mut)}
+header nav a:hover{color:var(--ink)}
+.lang{border:1px solid var(--ink);background:none;color:var(--ink);font:500 14px Heebo,sans-serif;padding:5px 14px;border-radius:99px;cursor:pointer}
+.lang:hover{background:var(--ink);color:var(--bg)}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;padding-block:72px 88px}
+h1{font-weight:300;font-size:clamp(40px,7vw,84px);line-height:1.05;letter-spacing:-.02em}
+.hero p{margin-top:26px;max-width:30em;color:var(--mut);font-size:19px}
+.frame{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:6px;background:#cfd5d9}
+.frame img,.frame video{width:100%;height:100%;object-fit:cover;display:block}
+.frame.live::after{content:"";position:absolute;inset-inline-end:14px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px 3px rgba(232,137,43,.65)}
+section{padding-block:72px;border-top:1px solid var(--line)}
+h2{font-weight:500;font-size:28px;letter-spacing:-.01em;margin-bottom:34px}
+h3{font-weight:500;font-size:19px;margin-bottom:6px}
+.proj-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px}
+.proj-head h3{font-size:clamp(28px,4vw,44px);font-weight:300;line-height:1.15}
+.tag{color:var(--mut);font-size:15px;margin-top:10px}
+.lead{font-size:19px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:56px}
+.step{padding:22px 24px 4px;border-inline-start:1px solid var(--line)}
+.step:first-child{border-inline-start:0;padding-inline-start:0}
+.step b{display:block;color:var(--acc);font-weight:500;margin-bottom:6px}
+.step p{color:var(--mut);font-size:15.5px}
+.car{position:relative;margin-bottom:56px}
+.track{display:flex;transition:transform .5s cubic-bezier(.3,.7,.2,1)}
+.slide{flex:0 0 100%;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:40px;align-items:end}
+.slide .frame{aspect-ratio:4/5}
+.slide p{color:var(--mut);max-width:24em;padding-bottom:8px}
+.ctl{display:flex;gap:12px;align-items:center;margin-top:22px}
+.ctl button{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;font-size:18px}
+.ctl button:hover{background:var(--ink);color:var(--bg)}
+.dots{display:flex;gap:8px;margin-inline-start:12px}
+.dots i{width:22px;height:2px;background:var(--line);transition:background .3s}
+.dots i.on{background:var(--acc)}
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:720px;margin-bottom:48px}
+.vids p{font-size:15px;color:var(--mut);margin-top:10px}
+.note{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.note p{color:var(--mut);font-size:16px}
+.card{padding:26px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;align-items:baseline}
+.card p{color:var(--mut);font-size:15.5px;max-width:34em}
+.card span{font-size:14px;color:var(--mut);white-space:nowrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.two p{color:var(--mut)}
+.big{font-size:clamp(22px,3.4vw,38px);font-weight:300;text-decoration:none;border-bottom:1px solid var(--acc);padding-bottom:2px}
+.links{display:flex;gap:26px;margin-top:26px;font-size:15px;flex-wrap:wrap}
+footer{padding-block:36px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media (max-width:820px){
+.hero,.proj-head,.note,.two{grid-template-columns:1fr;gap:32px}
+.steps{grid-template-columns:1fr}
+.step{border-inline-start:0;border-top:1px solid var(--line);padding-inline:0}
+.step:first-child{border-top:0;padding-top:0}
+.slide{grid-template-columns:1fr;gap:16px}
+.vids{grid-template-columns:1fr}
+header nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){.track{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<strong data-k="brand">השם שלך</strong>
+<nav><a href="#projects" data-k="nProj">פרויקטים</a><a href="#maker" data-k="nMaker">MakerWorld</a><a href="#about" data-k="nAbout">עליי</a><a href="#contact" data-k="nContact">קשר</a></nav>
+<button class="lang" id="lang" aria-label="Language">English</button>
+</header>
+
+<div class="hero">
+<div>
+<h1 data-k="h1">אני בונה דברים שזזים.</h1>
+<p data-k="heroP">סטודנט להנדסת מכונות בטכניון. מתעניין בפניאומטיקה, מכטרוניקה ורובוטים קטנים, ובונה אותם בבית: מדפיס, יוצק, מלחים ומתקן.</p>
+</div>
+<div class="frame live"><video src="media/actuation.mp4" poster="media/actuation-poster.jpg" autoplay muted loop playsinline></video></div>
+</div>
+
+<section id="projects">
+<h2 data-k="projects">פרויקטים</h2>
+<div class="proj-head">
+<div><h3 data-k="p1t">לופתן פניאומטי רך</h3><div class="tag" data-k="p1tag">פרויקט אישי, ללא קורס, מתוך סקרנות</div></div>
+<p class="lead" data-k="p1lead">אוויר דחוס, גיאומטריה לא סימטרית ותנועת כפיפה. לופתן מסוג PneuNet שנסגר מלחץ של מזרק ידני, לא דולף, ומצליח להרים עצם אמיתי.</p>
+</div>
+
+<div class="steps">
+<div class="step"><b data-k="s1h">הדפסה ישירה ב-TPU</b><p data-k="s1p">האוויר דלף בין השכבות. הדפסה בזווית של 45° פתרה גישור, אבל סיכנה צימוד כפיפה-פיתול בגלל כיווניות קווי ההדפסה.</p></div>
+<div class="step"><b data-k="s2h">מעבר לתבניות</b><p data-k="s2p">תבנית PETG עם ליבה פנימית ויציקת סיליקון. אותה נקבוביות הופיעה גם בחלקי ה-PETG, ונאטמה בשכבה דקה של סיליקון.</p></div>
+<div class="step"><b data-k="s3h">שלוש איטרציות</b><p data-k="s3p">פחות חריצים, אחר כך דופן עבה יותר. חליצה כמו כפפה עבדה באיטרציה 2 וקרעה את הסיליקון באיטרציה 3.</p></div>
+</div>
+
+<div class="car" id="car">
+<div class="track" id="track">
+<div class="slide"><div class="frame"><img src="media/molds.jpg" alt=""></div><p data-k="c1">שלוש סדרות תבניות: צהוב (1), כתום (2), כהה (3). האצבעות הפועלות יצוקות מתבנית 2.</p></div>
+<div class="slide"><div class="frame"><img src="media/iter1-cast.jpg" alt=""></div><p data-k="c2">איטרציה 1: הליבה, ויציקה עם קצוות קרועים ועיוות.</p></div>
+<div class="slide"><div class="frame"><img src="media/glue.jpg" alt=""></div><p data-k="c3">הדבקת חלקי הליבה בסיליקון ניטרלי, אחרי שאוויר דלף דרך שכבות ההדפסה בבדיקת טבילה.</p></div>
+<div class="slide"><div class="frame"><img src="media/clamp.jpg" alt=""></div><p data-k="c4">שתי אצבעות על מחבר Y מודפס וצינור 8 מ״מ. משמאל, יציקות שנכשלו.</p></div>
+</div>
+<div class="ctl"><button id="prev" aria-label="Previous">‹</button><button id="next" aria-label="Next">›</button><div class="dots" id="dots"></div></div>
+</div>
+
+<div class="vids">
+<div><div class="frame"><video src="media/actuation.mp4" poster="media/actuation-poster.jpg" controls muted loop playsinline preload="none"></video></div><p data-k="v1">הפעלה ידנית עם מזרק.</p></div>
+<div><div class="frame"><video src="media/grip.mp4" poster="media/grip-poster.jpg" controls muted loop playsinline preload="none"></video></div><p data-k="v2">הלופתן מרים עצם אמיתי.</p></div>
+</div>
+
+<div class="note">
+<div><h3 data-k="limH">מה לא יודעים</h3><p data-k="limP">הסיליקון הוא ערכת יצירה זולה בלי נתוני חומר, ולכן התוצאות איכותיות בלבד. הדופן הדקה נפתרה בכיול התושבת ובהוספת סיליקון ידנית היכן שצריך.</p></div>
+<div><h3 data-k="nextH">הצעד הבא</h3><p data-k="nextP">אוטומציה: בקר Arduino, מנוע DC ומנגנון שיניים-וגל משונן שדוחף את בוכנת המזרק. בגרסה הבאה של התבנית: ליבה מחולקת או ליבה מודפסת ב-PVA שמתמוססת במים.</p></div>
+</div>
+
+<div style="margin-top:72px">
+<div class="card"><div><h3 data-k="p2t">רובוט נייד על ESP32-C3</h3><p data-k="p2p">רובוט הנעה דיפרנציאלית קטן. תיאור יתווסף.</p></div><span data-k="p2s">בבנייה</span></div>
+<div class="card"><div><h3 data-k="p3t">פרויקט נוסף</h3><p data-k="p3p">מקום לפרויקט הבא.</p></div><span data-k="p3s">בקרוב</span></div>
+</div>
+</section>
+
+<section id="maker">
+<h2>MakerWorld</h2>
+<div class="two">
+<p data-k="mkP">מודלים להדפסה תלת-ממדית שעיצבתי. כאן יופיעו המודלים הבולטים, עם מספרי הורדות והדפסות אמיתיים.</p>
+<div class="links"><a class="big" href="#" data-k="mkL">לפרופיל ב-MakerWorld</a></div>
+</div>
+</section>
+
+<section id="about">
+<h2 data-k="about">עליי</h2>
+<div class="two">
+<p data-k="abP">סטודנט להנדסת מכונות בטכניון. הפרויקטים כאן הם בעיקר מתוך סקרנות, לא מתוך קורסים. פסקה אישית אמיתית תבוא כאן.</p>
+<p data-k="abT">כלים: CAD (SolidWorks, Creo), הדפסה תלת-ממדית, Arduino ו-ESP32, Python ברמת בסיס. הרמות המדויקות יעודכנו.</p>
+</div>
+</section>
+
+<section id="contact">
+<h2 data-k="contact">יצירת קשר</h2>
+<a class="big" href="mailto:you@example.com">you@example.com</a>
+<div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#" data-k="cv">קורות חיים</a></div>
+</section>
+<footer data-k="foot">סקיצה ראשונה. תוכן ותמונות זמניים.</footer>
+</div>
+
+<script>
+const T={
+he:{brand:"השם שלך",nProj:"פרויקטים",nMaker:"MakerWorld",nAbout:"עליי",nContact:"קשר",h1:"אני בונה דברים שזזים.",heroP:"סטודנט להנדסת מכונות בטכניון. מתעניין בפניאומטיקה, מכטרוניקה ורובוטים קטנים, ובונה אותם בבית: מדפיס, יוצק, מלחים ומתקן.",projects:"פרויקטים",p1t:"לופתן פניאומטי רך",p1tag:"פרויקט אישי, ללא קורס, מתוך סקרנות",p1lead:"אוויר דחוס, גיאומטריה לא סימטרית ותנועת כפיפה. לופתן מסוג PneuNet שנסגר מלחץ של מזרק ידני, לא דולף, ומצליח להרים עצם אמיתי.",s1h:"הדפסה ישירה ב-TPU",s1p:"האוויר דלף בין השכבות. הדפסה בזווית של 45° פתרה גישור, אבל סיכנה צימוד כפיפה-פיתול בגלל כיווניות קווי ההדפסה.",s2h:"מעבר לתבניות",s2p:"תבנית PETG עם ליבה פנימית ויציקת סיליקון. אותה נקבוביות הופיעה גם בחלקי ה-PETG, ונאטמה בשכבה דקה של סיליקון.",s3h:"שלוש איטרציות",s3p:"פחות חריצים, אחר כך דופן עבה יותר. חליצה כמו כפפה עבדה באיטרציה 2 וקרעה את הסיליקון באיטרציה 3.",c1:"שלוש סדרות תבניות: צהוב (1), כתום (2), כהה (3). האצבעות הפועלות יצוקות מתבנית 2.",c2:"איטרציה 1: הליבה, ויציקה עם קצוות קרועים ועיוות.",c3:"הדבקת חלקי הליבה בסיליקון ניטרלי, אחרי שאוויר דלף דרך שכבות ההדפסה בבדיקת טבילה.",c4:"שתי אצבעות על מחבר Y מודפס וצינור 8 מ״מ. משמאל, יציקות שנכשלו.",v1:"הפעלה ידנית עם מזרק.",v2:"הלופתן מרים עצם אמיתי.",limH:"מה לא יודעים",limP:"הסיליקון הוא ערכת יצירה זולה בלי נתוני חומר, ולכן התוצאות איכותיות בלבד. הדופן הדקה נפתרה בכיול התושבת ובהוספת סיליקון ידנית היכן שצריך.",nextH:"הצעד הבא",nextP:"אוטומציה: בקר Arduino, מנוע DC ומנגנון שיניים-וגל משונן שדוחף את בוכנת המזרק. בגרסה הבאה של התבנית: ליבה מחולקת או ליבה מודפסת ב-PVA שמתמוססת במים.",p2t:"רובוט נייד על ESP32-C3",p2p:"רובוט הנעה דיפרנציאלית קטן. תיאור יתווסף.",p2s:"בבנייה",p3t:"פרויקט נוסף",p3p:"מקום לפרויקט הבא.",p3s:"בקרוב",mkP:"מודלים להדפסה תלת-ממדית שעיצבתי. כאן יופיעו המודלים הבולטים, עם מספרי הורדות והדפסות אמיתיים.",mkL:"לפרופיל ב-MakerWorld",about:"עליי",abP:"סטודנט להנדסת מכונות בטכניון. הפרויקטים כאן הם בעיקר מתוך סקרנות, לא מתוך קורסים. פסקה אישית אמיתית תבוא כאן.",abT:"כלים: CAD (SolidWorks, Creo), הדפסה תלת-ממדית, Arduino ו-ESP32, Python ברמת בסיס. הרמות המדויקות יעודכנו.",contact:"יצירת קשר",cv:"קורות חיים",foot:"סקיצה ראשונה. תוכן ותמונות זמניים."},
+en:{brand:"Your Name",nProj:"Projects",nMaker:"MakerWorld",nAbout:"About",nContact:"Contact",h1:"I build things that move.",heroP:"Mechanical engineering student at the Technion. Interested in pneumatics, mechatronics and small robots, and I build them at home: printing, casting, gluing and fixing.",projects:"Projects",p1t:"Soft pneumatic gripper",p1tag:"Personal project, no course, out of curiosity",p1lead:"Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.",s1h:"Direct TPU print",s1p:"Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.",s2h:"Switch to molds",s2p:"A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.",s3h:"Three iterations",s3p:"Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.",c1:"Three mold sets: yellow (1), orange (2), dark (3). The working fingers were cast from mold 2.",c2:"Iteration 1: the core, and a cast with torn edges and distortion.",c3:"Bonding the core parts with neutral silicone, after air leaked through the print layers in a submersion test.",c4:"Two fingers on a printed Y manifold and 8 mm tube. Failed casts on the left.",v1:"Manual actuation with a syringe.",v2:"The gripper lifting a real object.",limH:"What isn’t known",limP:"The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.",nextH:"Next",nextP:"Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.",p2t:"ESP32-C3 mobile robot",p2p:"A small differential-drive robot. Description to come.",p2s:"In progress",p3t:"Another project",p3p:"Placeholder for the next one.",p3s:"Soon",mkP:"3D-printable models I designed. The standout models will appear here, with real download and print counts.",mkL:"Open my MakerWorld profile",about:"About",abP:"Mechanical engineering student at the Technion. The projects here are mostly out of curiosity, not coursework. A real personal paragraph goes here.",abT:"Tools: CAD (SolidWorks, Creo), 3D printing, Arduino and ESP32, Python at a basic level. Exact levels to be updated.",contact:"Contact",cv:"Résumé",foot:"First sketch. Placeholder content and photos."}
+};
+const L=document.getElementById("lang");
+function setLang(l){
+  const h=document.documentElement;
+  h.lang=l;h.dir=l==="he"?"rtl":"ltr";
+  document.querySelectorAll("[data-k]").forEach(e=>{e.textContent=T[l][e.dataset.k]});
+  L.textContent=l==="he"?"English":"עברית";
+  try{localStorage.setItem("lang",l)}catch(e){}
+  go(i);
+}
+const track=document.getElementById("track"),n=track.children.length,dots=document.getElementById("dots");
+let i=0;
+for(let k=0;k<n;k++)dots.appendChild(document.createElement("i"));
+function go(x){
+  i=(x+n)%n;
+  const rtl=document.documentElement.dir==="rtl";
+  track.style.transform="translateX("+(rtl?1:-1)*i*100+"%)";
+  [...dots.children].forEach((d,k)=>d.classList.toggle("on",k===i));
+}
+document.getElementById("next").onclick=()=>go(i+1);
+document.getElementById("prev").onclick=()=>go(i-1);
+let sx=null;
+track.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
+track.addEventListener("touchend",e=>{
+  if(sx===null)return;
+  const d=e.changedTouches[0].clientX-sx;
+  const rtl=document.documentElement.dir==="rtl";
+  if(Math.abs(d)>40)go(i+((d<0)!==rtl?1:-1));
+  sx=null;
+});
+L.onclick=()=>setLang(document.documentElement.lang==="he"?"en":"he");
+let s="he";
+try{s=localStorage.getItem("lang")||"he"}catch(e){}
+document.getElementById("car").parentElement.style.overflow="hidden";
+setLang(s);
+</script>
+</body>
+</html>
