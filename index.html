@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+
+  
+  <title>Eran Buhbut | Mechanical engineering student</title>
+
+  
+  <meta name="description" content="Mechanical engineering student at the Technion. Soft robotics, mechatronics, CAD and 3D printing projects.">
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Eran Buhbut">
+  <meta property="og:description" content="Mechanical engineering student at the Technion. My own projects: what I built, what failed, and what I changed.">
+  
+  <meta property="og:image" content="media/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233f6783'/%3E%3Ctext x='32' y='43' font-size='36' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EE%3C/text%3E%3Crect x='16' y='50' width='32' height='4' fill='white'/%3E%3C/svg%3E">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --t-small: 15px;         
+  --t-body: 18px;          
+  --t-lead: 22px;          
+  --t-sub: 28px;           
+  --t-title: 36px;         
+  --t-display: clamp(40px,7vw,84px);  
+  --bg: #f8f8f8;  
+  --panel: #fff;  
+  --ink: #161616;  
+  --mut: #5a5a5a;  
+  --line: #c4c4c4;  
+  --ph: #e6e6e6;  
+  --blue: #3f6783;  
+  --acc: #3f6783;             
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--blue) var(--bg);  
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Heebo,"Segoe UI",Arial,sans-serif;
+  font-weight: 300;
+  font-size: var(--t-body);
+  line-height: 1.65;
+}
+
+.pick {
+  counter-reset: pk;
+}
+.pk {
+  counter-increment: pk;
+}
+.pk h3::before {
+  content: counter(pk,decimal-leading-zero);
+  display: block;
+  font-weight: 500;
+  font-size: var(--t-small);
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background: linear-gradient(to right,var(--blue) 0 68%,var(--acc) 68% 100%);
+}
+
+::selection {
+  background: var(--acc);
+  color: #fff;
+}
+a {
+  color: inherit;
+  text-underline-offset: .2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: var(--t-display);
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+
+h1 mark {
+  color: var(--bg);
+  background: linear-gradient(var(--blue),var(--blue)) no-repeat 100% 55%/100% 80%;  
+  padding: 0 .2em;
+  white-space: nowrap;
+  border-radius: 8px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: sweep 1s .35s cubic-bezier(.2,.7,.2,1) backwards;
+}
+[dir=ltr] h1 mark {
+  background-position: 0 55%;
+}
+@keyframes sweep {
+  from {
+    background-size: 0% 80%;
+    color: var(--ink);
+  }
+  45% {
+    color: var(--ink);
+  }
+  to {
+    background-size: 100% 80%;
+    color: var(--bg);
+  }
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: var(--t-title);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  margin-bottom: 34px;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 44px;  
+  height: 3px;
+  background: var(--acc);
+  margin-top: 12px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: var(--t-lead);
+  line-height: 1.3;
+}
+
+.proj-head h3 {
+  font-weight: 500;
+  font-size: var(--t-sub);
+  line-height: 1.2;
+}
+
+.lead, .hero p {
+  font-weight: 300;
+  font-size: var(--t-lead);
+}
+
+.step p, .note p, .two p {
+  font-size: var(--t-body);
+  color: var(--mut);
+}
+
+.slide p, .vids p, .tag, .pk small, footer {
+  font-size: var(--t-small);
+  color: var(--mut);
+}
+
+.step b {
+  display: block;
+  font-weight: 500;
+  font-size: var(--t-body);
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.step b::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 44px;
+  margin-top: 8px;
+  background: var(--blue);
+}
+
+.pk .st {
+  position: absolute;      
+  top: 16px;
+  inset-inline-end: 18px;
+  line-height: 1.3;        
+  font-weight: 500;
+  font-size: var(--t-small);
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.big {
+  font-weight: 300;
+  font-size: var(--t-sub);
+  text-wrap: balance;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acc);
+  padding-bottom: 2px;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: clamp(20px,5vw,48px);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 26px;
+  border-bottom: 1px solid var(--line);
+}
+header nav {
+  display: flex;
+  gap: 31px;
+  font-size: var(--t-body);
+}
+header nav a {
+  text-decoration: none;
+  color: var(--mut);
+}
+header nav a:hover {
+  color: var(--blue);
+}
+
+.hr {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-inline-start: auto;
+}
+
+.who {
+  margin-bottom: 34px;
+}
+.nm {
+  font-weight: 500;
+  font-size: var(--t-lead);
+  line-height: 1.2;
+}
+.rl {
+  font-size: var(--t-body);
+  color: var(--mut);
+  margin-top: 4px;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  background: none;
+  cursor: pointer;
+}
+.menu i {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform .25s,opacity .25s;
+}
+.menu[aria-expanded=true] i:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu[aria-expanded=true] i:nth-child(2) {
+  opacity: 0;
+}
+.menu[aria-expanded=true] i:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.lang {
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  font: 500 var(--t-body) Heebo,sans-serif;
+  padding: 6px 17px;
+  border-radius: 99px;
+  cursor: pointer;
+}
+.lang:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;  
+  gap: 56px;
+  align-items: center;
+  padding-block: 72px 88px;
+}
+.hero p {
+  margin-top: 30px;
+  max-width: 30em;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ph);
+}
+.frame img, .frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero .frame {
+  border-bottom: 4px solid var(--acc);
+}
+.slide .frame, .vids .frame {
+  border-bottom: 4px solid var(--blue);
+}
+
+section {
+  padding-block: 72px;
+  border-top: 1px solid var(--line);
+}
+
+.pick {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+.pk {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color .25s,box-shadow .25s;
+}
+.pk:hover {
+  border-color: var(--blue);
+}
+.pk[aria-expanded=true] {
+  border-color: var(--blue);
+  box-shadow: inset 0 -3px 0 var(--acc);  
+}
+.pk .th {
+  aspect-ratio: 16/9;
+  background: var(--ph);
+  overflow: hidden;
+}
+.pk .th img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+
+.pk:hover .th img {
+  transform: scale(1.04);  
+}
+.pk .bd {
+  position: relative;
+  padding: 16px 18px 18px;
+}
+.pk small {
+  display: block;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+.pp {
+  display: grid;
+  grid-template-rows: 0fr;  
+  transition: grid-template-rows .55s ease;
+}
+.pp.open {
+  grid-template-rows: 1fr;
+}
+.pw {
+  overflow: hidden;
+  min-height: 0;
+}
+.in {
+  padding-top: 56px;
+}
+
+.proj-head {
+  margin-bottom: 48px;
+}
+.proj-head .lead {
+  margin-top: 22px;
+  max-width: 44em;
+}
+.tag {
+  margin-top: 10px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-bottom: 56px;
+}
+.step {
+  padding: 22px 24px 4px;
+  border-inline-start: 1px solid var(--line);
+}
+.step:first-child {
+  border-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+.car {
+  position: relative;
+  margin-bottom: 56px;
+  overflow: hidden;
+}
+.track {
+  display: flex;
+  transition: transform .5s cubic-bezier(.3,.7,.2,1);
+}
+.slide {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: minmax(240px,380px) 1fr;
+  gap: 40px;
+  align-items: center;     
+}
+.slide .frame {
+  aspect-ratio: 4/5;
+}
+.slide p {
+  max-width: 26em;
+  padding-bottom: 8px;
+}
+.ctl {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 22px;
+}
+.ctl button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: var(--t-body);
+}
+.ctl button:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-inline-start: 12px;
+}
+.dots i {
+  width: 22px;
+  height: 3px;
+  background: var(--line);
+  transition: background .3s;
+}
+.dots i.on {
+  background: var(--acc);
+}
+
+.vids {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.vids p {
+  margin-top: 10px;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.links {
+  display: flex;
+  gap: 26px;
+  margin-top: 26px;
+  font-size: var(--t-body);
+  flex-wrap: wrap;
+}
+.links a:hover {
+  color: var(--blue);
+}
+
+footer {
+  padding-block: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.xr {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+.xp .xr:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.xw {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  font-size: var(--t-small);
+  color: var(--blue);
+  padding-top: 5px;
+}
+.xr p {
+  font-size: var(--t-body);
+  color: var(--mut);
+  margin-top: 6px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 36px;
+  border: 1px solid var(--blue);
+  border-radius: 99px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: var(--t-body);
+  text-decoration: none;
+  background: var(--blue);
+  color: #fff;
+  transition: background .2s,color .2s,border-color .2s;
+}
+.btn:hover {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+@media (max-width:820px) {
+  .hero, .proj-head, .note, .two {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step {
+    border-inline-start: 0;
+    border-top: 1px solid var(--line);
+    padding-inline: 0;
+  }
+  .step:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .slide {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .vids {
+    grid-template-columns: 1fr;
+  }
+  header {
+    position: relative;
+  }
+  .xr {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  header nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    z-index: 20;
+  }
+  header.open nav {
+    display: flex;
+  }
+  header nav a {
+    padding: 14px 22px;
+    font-size: var(--t-body);
+    color: var(--ink);
+  }
+  .menu {
+    display: flex;
+  }
+  .pick {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  h1 mark {
+    animation: none;
+  }
+  .track, .pp, .pk, .pk .th img {
+    transition: none;
+  }
+  .pk:hover .th img {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+html {
+  scroll-padding-top: 92px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(248,248,248,.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+header.stuck {
+  box-shadow: 0 10px 24px -18px rgba(0,22,40,.45);
+}
+header nav a.cur {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 9px;
+}
+.pick {
+  grid-template-columns: repeat(2,1fr);
+}
+@media (max-width:820px) {
+  .pick {
+    grid-template-columns: 1fr;
+  }
+  header nav a.cur {
+    text-underline-offset: 6px;
+  }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .pk {
+    transition: border-color .25s,box-shadow .25s,transform .25s;
+  }
+  .pk:hover {
+    transform: translateY(-4px);
+  }
+  .js .rv {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .8s ease,transform .8s ease;
+  }
+  .js .rv.seen {
+    opacity: 1;
+    transform: none;
+  }
+}
+#contact .links {
+  margin-top: 0;
+  gap: 18px 44px;
+}
+.cl {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--t-lead);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+}
+.cl svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.gal {
+  grid-template-columns: repeat(3,1fr);
+  max-width: 980px;
+}
+.gal .frame {
+  aspect-ratio: 4/3;
+}
+.vid-one {
+  grid-template-columns: minmax(0,420px);
+}
+.vid-one .frame {
+  aspect-ratio: 1/1;
+}
+@media (max-width:820px) {
+  .gal {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="wrap">
+
+      
+      <header>
+
+        
+        <nav id="nav">
+          <a href="#projects" data-k="nProj">Projects</a>
+          <a href="#experience" data-k="nExp">Experience</a>
+          <a href="#maker" data-k="nMaker">MakerWorld</a>
+          <a href="#about" data-k="nAbout">About</a>
+          <a href="#contact" data-k="nContact">Contact</a>
+        </nav>
+        <div class="hr">
+          <button class="lang" id="lang" aria-label="Language">עברית</button>
+          <button class="menu" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+        </div>
+      </header>
+
+      
+      <div class="hero">
+        <div>
+
+          
+          <div class="who">
+            <div class="nm" data-k="brand">Eran Buhbut</div>
+            <div class="rl" data-k="role">Mechanical engineering student, Technion</div>
+          </div>
+
+          
+          <h1 data-k="h1">Mechanical engineering, in <mark>practice.</mark></h1>
+
+          
+          <p data-k="heroP">This is where I keep my own projects: what I built, what failed, and what I changed.</p>
+        </div>
+
+        
+        <div class="frame">
+          <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+
+      
+      <section id="projects">
+        <h2 data-k="projects">Projects</h2>
+
+        
+        <div class="pick">
+          <button class="pk" data-t="1" aria-expanded="false" aria-controls="pp1">
+            <div class="th">
+              <img src="media/card-clamp.jpg" alt="Two silicone fingers closing on a small blue toggle switch">
+            </div>
+            <div class="bd">
+              <div>
+                <h3 data-k="p1t">Soft pneumatic gripper</h3>
+                <small data-k="p1c">Soft gripper closing on air pressure</small>
+              </div>
+              <span class="st" data-k="p1s">Working POC</span>
+            </div>
+          </button>
+          <button class="pk" data-t="2" aria-expanded="false" aria-controls="pp2">
+            <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on a perfboard fan, a black printed chassis and four small wheels"></div>
+            <div class="bd">
+              <div>
+                <h3 data-k="p2t">ESP32-C3 mobile robot</h3>
+                <small data-k="p2c">Differential drive, IR sensors</small>
+              </div>
+              <span class="st" data-k="p2s">In progress</span>
+            </div>
+          </button>
+        </div>
+
+        
+        <div class="pp" id="pp1" data-p="1" inert>
+          <div class="pw">
+            <div class="in">
+
+              
+              <div class="proj-head">
+                <div>
+                  <h3 data-k="p1t">Soft pneumatic gripper</h3>
+                  <div class="tag" data-k="p1tag">Personal project, no course, out of curiosity</div>
+                </div>
+                <p class="lead" data-k="p1lead">Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.</p>
+              </div>
+
+              
+              <div class="steps">
+                <div class="step">
+                  <b data-k="s1h">Direct TPU print</b>
+                  <p data-k="s1p">Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.</p>
+                </div>
+                <div class="step">
+                  <b data-k="s2h">Switch to molds</b>
+                  <p data-k="s2p">A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.</p>
+                </div>
+                <div class="step">
+                  <b data-k="s3h">Three iterations</b>
+                  <p data-k="s3p">Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.</p>
+                </div>
+              </div>
+
+              
+              <div class="car" id="car">
+                <div class="track" id="track">
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/molds.jpg" alt="Three pairs of 3D-printed molds in blue, orange and yellow, with an orange and a yellow inner core and two cast silicone fingers">
+                    </div>
+                    <p data-k="c1">Three mold sets: yellow (1), orange (2), blue (3). The working fingers were cast from mold 2.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/iter1-cast.jpg" alt="A yellow printed core next to a cast silicone part with torn, uneven edges">
+                    </div>
+                    <p data-k="c2">Iteration 1: the core, and a cast with torn edges and distortion.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/glue.jpg" alt="A hand pressing a syringe to inject silicone into a yellow printed mold held shut with clamps">
+                    </div>
+                    <p data-k="c3">Casting: silicone injected with a syringe into a yellow mold held shut with clamps.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/clamp.jpg" alt="Two silicone fingers gripping a small blue toggle switch on a wooden desk">
+                    </div>
+                    <p data-k="c4">The finished fingers closing on a toggle switch.</p>
+                  </div>
+                </div>
+                <div class="ctl">
+                  <button id="prev" aria-label="Previous">‹</button>
+                  <button id="next" aria-label="Next">›</button>
+                  <div class="dots" id="dots"></div>
+                </div>
+              </div>
+
+              
+              <div class="vids">
+                <div>
+                  <div class="frame">
+                    <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p data-k="v1">Manual actuation with a syringe.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <video aria-label="The gripper closes on a small toggle switch and lifts it off the table" src="media/grip.mp4" poster="media/grip-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p data-k="v2">The gripper lifting a real object.</p>
+                </div>
+              </div>
+
+              
+              <div class="note">
+                <div>
+                  <h3 data-k="limH">What isn’t known</h3>
+                  <p data-k="limP">The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.</p>
+                </div>
+                <div>
+                  <h3 data-k="nextH">Next</h3>
+                  <p data-k="nextP">Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="pp" id="pp2" data-p="2" inert>
+          <div class="pw">
+            <div class="in">
+              <div class="proj-head">
+                <div>
+                  <h3 data-k="p2t">ESP32-C3 mobile robot</h3>
+                  <div class="tag" data-k="p2tag">Personal project, learning ML on a real machine</div>
+                </div>
+                <p class="lead" data-k="p2p">A small differential-drive robot that started with hard-coded reflexes. The goal now is a controller learned from my own driving, and a fair test of whether it beats the reflex version.</p>
+              </div>
+
+              <div class="steps">
+                <div class="step">
+                  <b data-k="m1h">Reflexes first</b>
+                  <p data-k="m1p">A Braitenberg-style avoidance controller on four IR sensors. It proved the wiring and the mechanics, and it is the baseline the learned controller has to beat.</p>
+                </div>
+                <div class="step">
+                  <b data-k="m2h">Rebuilding the chassis</b>
+                  <p data-k="m2p">Version 1 had its heavy parts at the front and its drive wheels at the rear, so the wheels slipped in turns and the motors ran hot. Version 2 moved to an ESP32-C3, two 615 motors near the center and four wheels.</p>
+                </div>
+                <div class="step">
+                  <b data-k="m3h">Measuring before collecting</b>
+                  <p data-k="m3p">Sensor noise is about 6 counts, but the gain differs between sensors and shifts 5–35% between sessions. Running the motors raises the jitter 10–40 times, so I added filter capacitors and still have to repeat the test.</p>
+                </div>
+              </div>
+
+              <div class="vids gal">
+                <div>
+                  <div class="frame" style="background:#f8f9fb">
+                    <img src="media/mm-cad.jpg" alt="CAD render of the first chassis: an ESP32 board, two drive wheels and a front caster" style="object-fit:contain">
+                  </div>
+                  <p data-k="g1">Version 1 in CAD.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <img src="media/mm-v1.jpg" alt="Version 1 built: an ESP32 board, IR sensors on a perfboard fan, and two small wheels with a caster at the front">
+                  </div>
+                  <p data-k="g2">Version 1, built: IR sensors on a perfboard fan, drive wheels at the rear, a caster at the front.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <img src="media/mm-v2.jpg" alt="Version 2 from above: a black printed chassis with two gearboxes, four small wheels and the sensor fan">
+                  </div>
+                  <p data-k="g3">Version 2: ESP32-C3, motors near the center, two wheels per side.</p>
+                </div>
+              </div>
+
+              <div class="vids vid-one">
+                <div>
+                  <div class="frame">
+                    <video aria-label="The robot driving through a white hand-made maze with orange corner markers, filmed from above" src="media/mm-maze.mp4" poster="media/mm-maze-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p data-k="mv1">A test run in a hand-made maze.</p>
+                </div>
+              </div>
+
+              <div class="note">
+                <div>
+                  <h3 data-k="mlH">What isn’t known</h3>
+                  <p data-k="mlP">Whether the learned controller beats the reflex baseline hasn’t been tested, because I haven’t recorded the first dataset yet. Part of the motor noise may be vibration and not electrical, and that is still not separated.</p>
+                </div>
+                <div>
+                  <h3 data-k="mnH">Next</h3>
+                  <p data-k="mnP">A short pilot recording, then a decision tree or random forest and a small neural network trained on my driving, compared with the reflex controller in closed-loop runs. If the learned one doesn’t win, that is still a result.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section id="experience">
+        <h2 data-k="exp">Experience</h2>
+        <div class="xp">
+          <div class="xr">
+            <div class="xw" data-k="x1d">2025 – 2026</div>
+            <div>
+              <h3 data-k="x1t">Technion Formula SAE: monocoque development team</h3>
+              <p data-k="x1p">Structural redesign of a carbon-fibre monocoque concept: looking at failure points under bending and torsion, and adapting the design to carbon-fibre manufacturing.</p>
+            </div>
+          </div>
+          <div class="xr">
+            <div class="xw" data-k="x2d">2026 – present</div>
+            <div>
+              <h3 data-k="x2t">Research assistant, T-Sail Lab, Technion</h3>
+            </div>
+          </div>
+        </div>
+
+        
+        <a class="btn" href="Eran_Buhbut_CV.pdf" download data-k="cvb">Download CV (PDF)</a>
+      </section>
+
+      
+      <section id="maker">
+        <h2>MakerWorld</h2>
+        <div class="two">
+          <p data-k="mkP">3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
+          <div class="links">
+            <a class="big" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener" data-k="mkL">Open my MakerWorld profile</a>
+          </div>
+        </div>
+      </section>
+
+      
+      <section id="about">
+        <h2 data-k="about">About</h2>
+        <div class="two">
+          <p data-k="abP">Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
+          <p data-k="abT">Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
+        </div>
+      </section>
+
+      
+      <section id="contact">
+        <h2 data-k="contact">Contact</h2>
+        <div class="links">
+          <a class="cl" href="mailto:eranbuhbut3@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><span>eranbuhbut3@gmail.com</span></a>
+          <a class="cl" href="https://www.linkedin.com/in/eranbuhbut/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-6M12 13.5a3 3 0 0 1 6 0V17"/></svg><span>LinkedIn</span></a>
+          <a class="cl" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><span>MakerWorld</span></a>
+          <a class="cl" href="Eran_Buhbut_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span data-k="cv">CV</span></a>
+        </div>
+      </section>
+
+      
+      <footer data-k="foot">© 2026 Eran Buhbut</footer>
+    </div>
+
+<script>
+
+const HE = {
+  nProj: "פרויקטים",
+  nExp: "ניסיון",
+  nMaker: "MakerWorld",
+  nAbout: "עליי",
+  nContact: "קשר",
+
+  brand: "ערן בוחבוט",
+  role: "סטודנט להנדסת מכונות, הטכניון",
+  h1: "הנדסת מכונות, <mark>הלכה למעשה.</mark>",
+  heroP: "כאן אני אוסף את הפרויקטים שלי: מה בניתי, מה לא עבד, ומה שיניתי.",
+
+  projects: "פרויקטים",
+  p1t: "לופתן פניאומטי רך",
+  p1c: "לופתן רך שנסגר מלחץ אוויר",
+  p1s: "פועל (POC)",
+  p2t: "רובוט נייד על ESP32-C3",
+  p2c: "הנעה דיפרנציאלית, חיישני IR",
+  p2s: "בבנייה",
+
+  p1tag: "פרויקט אישי, ללא קורס, מתוך סקרנות",
+  p1lead: "אוויר דחוס, גיאומטריה לא סימטרית ותנועת כפיפה. לופתן מסוג PneuNet שנסגר מלחץ של מזרק ידני, לא דולף, ומצליח להרים עצם אמיתי.",
+  s1h: "הדפסה ישירה ב-TPU",
+  s1p: "האוויר דלף בין השכבות. הדפסה בזווית של 45° פתרה גישור, אבל סיכנה צימוד כפיפה-פיתול בגלל כיווניות קווי ההדפסה.",
+  s2h: "מעבר לתבניות",
+  s2p: "תבנית PETG עם ליבה פנימית ויציקת סיליקון. אותה נקבוביות הופיעה גם בחלקי ה-PETG, ונאטמה בשכבה דקה של סיליקון.",
+  s3h: "שלוש איטרציות",
+  s3p: "פחות חריצים, אחר כך דופן עבה יותר. חליצה כמו כפפה עבדה באיטרציה 2 וקרעה את הסיליקון באיטרציה 3.",
+  c1: "שלוש סדרות תבניות: צהוב (1), כתום (2), כחול (3). האצבעות הפועלות יצוקות מתבנית 2.",
+  c2: "איטרציה 1: הליבה, ויציקה עם קצוות קרועים ועיוות.",
+  c3: "יציקה: סיליקון מוזרק במזרק לתבנית צהובה הסגורה במלחציים.",
+  c4: "האצבעות המוגמרות נסגרות על מתג.",
+  v1: "הפעלה ידנית עם מזרק.",
+  v2: "הלופתן מרים עצם אמיתי.",
+  limH: "מה לא יודעים",
+  limP: "הסיליקון הוא ערכת יצירה זולה בלי נתוני חומר, ולכן התוצאות איכותיות בלבד. הדופן הדקה נפתרה בכיול התושבת ובהוספת סיליקון ידנית היכן שצריך.",
+  nextH: "הצעד הבא",
+  nextP: "אוטומציה: בקר Arduino, מנוע DC ומנגנון שיניים-וגל משונן שדוחף את בוכנת המזרק. בגרסה הבאה של התבנית: ליבה מחולקת או ליבה מודפסת ב-PVA שמתמוססת במים.",
+
+  p2p: "רובוט הנעה דיפרנציאלית קטן שהתחיל מרפלקסים קבועים בקוד. המטרה עכשיו היא בקר שלומד מהנהיגה שלי, ובדיקה הוגנת אם הוא מנצח את גרסת הרפלקסים.",
+  p2tag: "פרויקט אישי, ללמוד למידת מכונה על מכונה אמיתית",
+  m1h: "קודם רפלקסים",
+  m1p: "בקר הימנעות בסגנון ברייטנברג על ארבעה חיישני IR. הוא הוכיח שהחיווט והמכניקה עובדים, והוא קו הבסיס שהבקר הלומד צריך לנצח.",
+  m2h: "בניית השלדה מחדש",
+  m2p: "בגרסה 1 החלקים הכבדים היו מלפנים וגלגלי ההינע מאחור, ולכן הגלגלים החליקו בפניות והמנועים התחממו. בגרסה 2 עברתי ל-ESP32-C3, שני מנועי 615 ליד מרכז הרובוט וארבעה גלגלים.",
+  m3h: "למדוד לפני שאוספים נתונים",
+  m3p: "רעש החיישנים הוא בערך 6 יחידות, אבל ההגבר שונה בין החיישנים ומשתנה ב-5–35% בין סשנים. כשהמנועים פועלים הרעש עולה פי 10–40, אז הוספתי קבלים מסננים ועוד צריך לחזור על הבדיקה.",
+  g1: "גרסה 1 ב-CAD.",
+  g2: "גרסה 1 אחרי הבנייה: חיישני IR במניפה על לוח מחורר, גלגלי הינע מאחור וגלגל תומך מלפנים.",
+  g3: "גרסה 2: ESP32-C3, המנועים ליד המרכז, שני גלגלים בכל צד.",
+  mv1: "ריצת בדיקה במבוך שבניתי.",
+  mlH: "מה לא ידוע",
+  mlP: "עוד לא נבדק אם הבקר הלומד מנצח את קו הבסיס של הרפלקסים, כי עוד לא הקלטתי את סט הנתונים הראשון. ייתכן שחלק מרעש המנועים הוא רעידות ולא רעש חשמלי, וזה עדיין לא הופרד.",
+  mnH: "הבא",
+  mnP: "הקלטת פיילוט קצרה, ואז עץ החלטה או יער אקראי ורשת נוירונים קטנה שמאומנים על הנהיגה שלי, ומושווים לבקר הרפלקסים בריצות במעגל סגור. אם הבקר הלומד לא מנצח, זו עדיין תוצאה.",
+
+  exp: "ניסיון",
+  x1d: "2025 – 2026",
+  x1t: "פורמולה SAE בטכניון: צוות פיתוח המונוקוק",
+  x1p: "עיצוב מחדש של מבנה מונוקוק מסיבי פחמן: בחינת נקודות כשל תחת כפיפה ופיתול, והתאמת התכן לייצור מסיבי פחמן.",
+  x2d: "2026 – היום",
+  x2t: "עוזר מחקר, מעבדת T-Sail, הטכניון",
+  cvb: "הורדת קורות חיים (PDF)",
+
+  mkP: "מודלים להדפסה תלת-ממדית שעיצבתי. כאן יופיעו המודלים הבולטים, עם מספרי הורדות והדפסות אמיתיים.",
+  mkL: "לפרופיל ב-MakerWorld",
+
+  about: "עליי",
+  abP: "סטודנט להנדסת מכונות בטכניון (מאז 2023, סיום צפוי ב-2028). לפני ההנדסה עסקתי כשבע שנים ביצירת וידאו ומוזיקה באופן עצמאי.",
+  abT: "כלים: PTC Creo (מתקדם), SolidWorks (בינוני), הדפסת FDM, בקרים (ESP32, Arduino), Python (בסיסי).",
+  contact: "יצירת קשר",
+  cv: "קורות חיים",
+
+  foot: "© 2026 ערן בוחבוט"
+};
+
+const langButton = document.getElementById("lang");
+
+function setLang(lang) {
+  const isHebrew = lang === "he";
+
+  
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isHebrew ? "rtl" : "ltr";
+
+  
+  document.querySelectorAll("[data-k]").forEach(el => {
+    if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+    el.innerHTML = isHebrew && HE[el.dataset.k] !== undefined ? HE[el.dataset.k] : el.dataset.en;
+  });
+
+  
+  langButton.textContent = isHebrew ? "English" : "עברית";
+
+  
+  showSlide(slide);
+}
+
+langButton.onclick = () => setLang(document.documentElement.lang === "he" ? "en" : "he");
+
+const track = document.getElementById("track");
+const slideCount = track.children.length;
+const dots = document.getElementById("dots");
+let slide = 0;
+
+for (let k = 0; k < slideCount; k++) dots.appendChild(document.createElement("i"));
+
+function showSlide(n) {
+  slide = (n + slideCount) % slideCount;
+  const rtl = document.documentElement.dir === "rtl";
+  track.style.transform = "translateX(" + (rtl ? 1 : -1) * slide * 100 + "%)";
+  [...dots.children].forEach((dot, k) => dot.classList.toggle("on", k === slide));
+}
+
+document.getElementById("next").onclick = () => showSlide(slide + 1);
+document.getElementById("prev").onclick = () => showSlide(slide - 1);
+
+let touchStartX = null;
+track.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener("touchend", e => {
+  if (touchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const rtl = document.documentElement.dir === "rtl";
+  if (Math.abs(dx) > 40) showSlide(slide + ((dx < 0) !== rtl ? 1 : -1));
+  touchStartX = null;
+});
+
+const cards = [...document.querySelectorAll(".pk")];
+const panels = [...document.querySelectorAll(".pp")];
+const reduceMotion = matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+function openPanel(id) {
+  panels.forEach(panel => {
+    const open = panel.dataset.p === id;
+    panel.classList.toggle("open", open);
+    panel.inert = !open;
+  });
+  cards.forEach(card => card.setAttribute("aria-expanded", String(card.dataset.t === id)));
+}
+
+cards.forEach(card => card.onclick = () => {
+  const id = card.dataset.t;
+  const wasOpen = card.getAttribute("aria-expanded") === "true";
+  openPanel(wasOpen ? "0" : id);
+
+  
+  if (!wasOpen) {
+    setTimeout(() => {
+      document.getElementById("pp" + id).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }, reduceMotion ? 0 : 580);
+  }
+});
+
+const topBar = document.querySelector("header");
+const menuButton = document.getElementById("menu");
+
+function closeMenu() {
+  topBar.classList.remove("open");
+  menuButton.setAttribute("aria-expanded", "false");
+}
+
+menuButton.onclick = () => {
+  const open = topBar.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
+};
+
+document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", closeMenu));
+addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+document.addEventListener("click", e => { if (!topBar.contains(e.target)) closeMenu(); });
+
+const header = document.querySelector("header");
+const sections = [...document.querySelectorAll("section[id]")];
+const navLinks = [...document.querySelectorAll("#nav a")];
+
+function markNav(id) {
+  navLinks.forEach(a => a.classList.toggle("cur", a.getAttribute("href") === "#" + id));
+}
+
+if ("IntersectionObserver" in window) {
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) markNav(e.target.id); });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  sections.forEach(sec => spy.observe(sec));
+
+  if (!reduceMotion) {
+    document.documentElement.classList.add("js");
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("seen");
+          reveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: .06 });
+    [...sections, document.querySelector("footer")].forEach(el => {
+      el.classList.add("rv");
+      reveal.observe(el);
+    });
+  }
+}
+
+if (reduceMotion) {
+  const heroVideo = document.querySelector(".hero video");
+  heroVideo.removeAttribute("autoplay");
+  heroVideo.pause();
+  heroVideo.controls = true;
+}
+
+addEventListener("scroll", () => {
+  header.classList.toggle("stuck", scrollY > 8);
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) markNav(sections[sections.length - 1].id);
+}, { passive: true });
+
+openPanel("0");
+setLang("en");
+</script>
+</body>
+</html>
