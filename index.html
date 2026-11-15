@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  
-  
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f6f7">
 
-  
   <title>Eran Buhbut | Mechanical engineering student</title>
 
-  
   <meta name="description" content="Mechanical engineering student at the Technion. Soft robotics, mechatronics, CAD and 3D printing projects.">
 
-  
   <meta property="og:type" content="website">
   <meta property="og:title" content="Eran Buhbut">
   <meta property="og:description" content="Mechanical engineering student at the Technion. My own projects: what I built, what failed, and what I changed.">
-  
   <meta property="og:image" content="media/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233f6783'/%3E%3Ctext x='32' y='43' font-size='36' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EE%3C/text%3E%3Crect x='16' y='50' width='32' height='4' fill='white'/%3E%3C/svg%3E">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +28,7 @@
   --t-lead: 22px;          
   --t-sub: 28px;           
   --t-title: 36px;         
-  --t-display: clamp(44px,7vw,96px);  
+  --t-display: clamp(44px,6.6vw,90px);  
   --bg: #f5f6f7;  
   --panel: #fff;  
   --ink: #161616;  
@@ -44,7 +36,7 @@
   --line: #c8cdd2;  
   --ph: #e4e7ea;
   --tint: #e9eff3;
-  --grid: rgba(63,103,131,.090);  
+  --grid: rgba(63,103,131,.125);  
   --blue: #3f6783;  
   --acc: #3f6783;             
 }
@@ -66,6 +58,7 @@ body {
   font-weight: 300;
   font-size: var(--t-body);
   line-height: 1.65;
+  position: relative;
 }
 
 .pick {
@@ -109,13 +102,13 @@ a {
 h1 {
   font-weight: 300;
   font-size: var(--t-display);
-  line-height: 1.18;
-  letter-spacing: -.02em;
+  line-height: 1.16;
+  letter-spacing: -.03em;
 }
 
 h1 mark {
   color: var(--bg);
-  background: linear-gradient(var(--blue),var(--blue)) no-repeat 100% 55%/100% 80%;  
+  background: linear-gradient(var(--blue),var(--blue)) no-repeat 100% 62%/100% 74%;  
   padding: 0 .2em;
   white-space: nowrap;
   border-radius: 8px;
@@ -124,18 +117,18 @@ h1 mark {
   animation: sweep 1s .35s cubic-bezier(.2,.7,.2,1) backwards;
 }
 [dir=ltr] h1 mark {
-  background-position: 0 55%;
+  background-position: 0 62%;
 }
 @keyframes sweep {
   from {
-    background-size: 0% 80%;
+    background-size: 0% 74%;
     color: var(--ink);
   }
   45% {
     color: var(--ink);
   }
   to {
-    background-size: 100% 80%;
+    background-size: 100% 74%;
     color: var(--bg);
   }
 }
@@ -229,17 +222,26 @@ h3 {
 }
 
 .wrap {
-  max-width: 1080px;
+  max-width: 1120px;
   margin-inline: auto;
   padding-inline: clamp(20px,5vw,48px);
 }
 
 header {
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(245,246,247,.88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 26px;
-  border-bottom: 1px solid var(--line);
+  padding-block: 24px;
 }
 header nav {
   display: flex;
@@ -262,17 +264,17 @@ header nav a:hover {
 }
 
 .who {
-  margin-bottom: 34px;
+  margin: 56px 0 0;
 }
 .nm {
   font-weight: 500;
-  font-size: var(--t-lead);
+  font-size: var(--t-title);
   line-height: 1.2;
 }
 .rl {
-  font-size: var(--t-body);
+  font-size: var(--t-lead);
   color: var(--mut);
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .menu {
@@ -307,6 +309,8 @@ header nav a:hover {
 }
 
 .lang {
+  display: inline-block;
+  text-decoration: none;
   border: 1px solid var(--ink);
   background: none;
   color: var(--ink);
@@ -324,9 +328,9 @@ header nav a:hover {
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;  
-  gap: 56px;
+  gap: 48px;
   align-items: center;
-  padding-block: 72px 88px;
+  padding-block: 68px 88px;
 }
 .hero p {
   margin-top: 30px;
@@ -347,7 +351,13 @@ header nav a:hover {
   display: block;
 }
 
+.hero .plate {
+  max-width: 420px;
+  width: 100%;
+  justify-self: end;
+}
 .hero .frame {
+  aspect-ratio: 4/5;
   border-bottom: 4px solid var(--acc);
 }
 .slide .frame, .vids .frame {
@@ -355,14 +365,14 @@ header nav a:hover {
 }
 
 section {
-  padding-block: 72px;
+  padding-block: 80px;
   border-top: 1px solid var(--line);
 }
 
 .pick {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
 }
 .pk {
   display: flex;
@@ -386,7 +396,7 @@ section {
   box-shadow: inset 0 -3px 0 var(--acc);  
 }
 .pk .th {
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/10;
   background: var(--ph);
   overflow: hidden;
 }
@@ -403,12 +413,21 @@ section {
 }
 .pk .bd {
   position: relative;
-  padding: 16px 18px 18px;
+  padding: 20px 22px 22px;
+  border-top: 1px solid var(--line);
+}
+.pk h3 {
+  font-size: var(--t-lead);
+  font-weight: 500;
+}
+.pk h3::before {
+  content: none;
 }
 .pk small {
   display: block;
   line-height: 1.45;
-  margin-top: 4px;
+  font-size: var(--t-body);
+  margin-top: 6px;
 }
 
 .pp {
@@ -441,7 +460,7 @@ section {
 .steps {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  margin-bottom: 56px;
+  margin-bottom: 52px;
 }
 .step {
   padding: 22px 24px 4px;
@@ -454,7 +473,7 @@ section {
 
 .car {
   position: relative;
-  margin-bottom: 56px;
+  margin-bottom: 52px;
   overflow: hidden;
 }
 .track {
@@ -464,12 +483,12 @@ section {
 .slide {
   flex: 0 0 100%;
   display: grid;
-  grid-template-columns: minmax(240px,380px) 1fr;
-  gap: 40px;
+  grid-template-columns: minmax(220px,330px) 1fr;
+  gap: 36px;
   align-items: center;     
 }
 .slide .frame {
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/4.6;
 }
 .slide p {
   max-width: 26em;
@@ -514,9 +533,12 @@ section {
 .vids {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  max-width: 720px;
+  gap: 24px;
+  max-width: 640px;
   margin-bottom: 48px;
+}
+.vids:not(.gal):not(.vid-one) .frame {
+  aspect-ratio: 4/4.5;
 }
 .vids p {
   margin-top: 10px;
@@ -596,6 +618,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  .hero .plate {
+    max-width: 100%;
+    justify-self: stretch;
+  }
   .steps {
     grid-template-columns: 1fr;
   }
@@ -615,7 +641,7 @@ footer {
   .vids {
     grid-template-columns: 1fr;
   }
-  header {
+  .header-inner {
     position: relative;
   }
   .xr {
@@ -625,7 +651,7 @@ footer {
   header nav {
     display: none;
     position: absolute;
-    inset-inline: 0;
+    inset-inline: clamp(20px,5vw,48px);
     top: calc(100% + 10px);
     flex-direction: column;
     gap: 0;
@@ -668,14 +694,6 @@ footer {
 html {
   scroll-padding-top: 92px;
 }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(245,246,247,.88);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
 header.stuck {
   box-shadow: 0 10px 24px -18px rgba(0,22,40,.45);
 }
@@ -685,13 +703,7 @@ header nav a.cur {
   text-decoration-thickness: 2px;
   text-underline-offset: 9px;
 }
-.pick {
-  grid-template-columns: repeat(2,1fr);
-}
 @media (max-width:820px) {
-  .pick {
-    grid-template-columns: 1fr;
-  }
   header nav a.cur {
     text-underline-offset: 6px;
   }
@@ -721,13 +733,13 @@ header nav a.cur {
 }
 .gal {
   grid-template-columns: repeat(3,1fr);
-  max-width: 980px;
+  max-width: 880px;
 }
 .gal .frame {
   aspect-ratio: 4/3;
 }
 .vid-one {
-  grid-template-columns: minmax(0,420px);
+  grid-template-columns: minmax(0,360px);
 }
 .vid-one .frame {
   aspect-ratio: 1/1;
@@ -736,20 +748,6 @@ header nav a.cur {
   .gal {
     grid-template-columns: 1fr;
   }
-}
-.who {
-  margin: 34px 0 0;
-}
-.nm {
-  font-size: var(--t-title);
-}
-.rl {
-  font-size: var(--t-lead);
-  margin-top: 6px;
-}
-.lang {
-  display: inline-block;
-  text-decoration: none;
 }
 body::after {
   content: "";
@@ -762,22 +760,6 @@ body::after {
   background-size: 48px 48px;
   -webkit-mask-image: radial-gradient(ellipse 75% 85% at 72% 35%,#000 20%,transparent 75%);
   mask-image: radial-gradient(ellipse 75% 85% at 72% 35%,#000 20%,transparent 75%);
-}
-body {
-  position: relative;
-}
-.wrap {
-  max-width: 1200px;
-}
-section {
-  padding-block: 88px;
-}
-h1 {
-  line-height: 1.02;
-  letter-spacing: -.03em;
-}
-.hero {
-  padding-block: 80px 104px;
 }
 .plate {
   position: relative;
@@ -796,24 +778,6 @@ h1 {
     linear-gradient(var(--blue),var(--blue)) 0 100%/1px 20px no-repeat,
     linear-gradient(var(--blue),var(--blue)) 100% 100%/20px 1px no-repeat,
     linear-gradient(var(--blue),var(--blue)) 100% 100%/1px 20px no-repeat;
-}
-.pk h3::before {
-  content: none;
-}
-.pk .th {
-  aspect-ratio: 4/3;
-}
-.pk .bd {
-  padding: 22px 24px 24px;
-  border-top: 1px solid var(--line);
-}
-.pk h3 {
-  font-size: var(--t-lead);
-  font-weight: 500;
-}
-.pk small {
-  font-size: var(--t-body);
-  margin-top: 6px;
 }
 .xp {
   background: var(--panel);
@@ -849,7 +813,7 @@ h1 {
   overflow: hidden;
   border-radius: 6px;
   border-bottom: 4px solid var(--blue);
-  max-width: 240px;
+  max-width: 215px;
 }
 .portrait img {
   width: 100%;
@@ -865,11 +829,11 @@ h1 {
 }
 @media (min-width:821px) {
   .hero {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.15fr 0.95fr;
     min-height: calc(100vh - 92px);
   }
   .about {
-    grid-template-columns: 240px 1fr 1fr;
+    grid-template-columns: 215px 1fr 1fr;
   }
 }
 @media (max-width:820px) {
@@ -893,12 +857,8 @@ h1 {
 </style>
 </head>
 <body>
-    <div class="wrap">
-
-      
-      <header>
-
-        
+    <header>
+      <div class="wrap header-inner">
         <nav id="nav">
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
@@ -910,16 +870,12 @@ h1 {
           <a class="lang" href="Eran_Buhbut_CV.pdf" download>CV</a>
           <button class="menu" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      
+    <div class="wrap">
       <div class="hero">
         <div>
-
-          
-          
-
-          
           <h1>Mechanical engineering, in <mark>practice.</mark></h1>
 
           <div class="who">
@@ -928,19 +884,16 @@ h1 {
           </div>
         </div>
 
-        
         <div class="plate">
           <div class="frame">
-          <video aria-label="A short loop: a soft gripper lifting a toggle switch, its fingers closing, and a close-up of a small robot" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline></video>
-        </div>
+            <video aria-label="A short loop: a soft gripper lifting a toggle switch, its fingers closing, and a close-up of a small robot" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline></video>
+          </div>
         </div>
       </div>
 
-      
       <section id="projects">
         <h2>Projects</h2>
 
-        
         <div class="pick">
           <button class="pk" data-t="1" aria-expanded="false" aria-controls="pp1">
             <div class="th">
@@ -955,346 +908,4 @@ h1 {
             </div>
           </button>
           <button class="pk" data-t="2" aria-expanded="false" aria-controls="pp2">
-            <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on a perfboard fan, a black printed chassis and four small wheels"></div>
-            <div class="bd">
-              <div>
-                <h3>ESP32-C3 mobile robot</h3>
-                <small>Differential drive, IR sensors</small>
-              </div>
-              <span class="st">In progress</span>
-            </div>
-          </button>
-        </div>
-
-        
-        <div class="pp" id="pp1" data-p="1" inert>
-          <div class="pw">
-            <div class="in">
-
-              
-              <div class="proj-head">
-                <div>
-                  <h3>Soft pneumatic gripper</h3>
-                  <div class="tag">Personal project, no course, out of curiosity</div>
-                </div>
-                <p class="lead">Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.</p>
-              </div>
-
-              
-              <div class="steps">
-                <div class="step">
-                  <b>Direct TPU print</b>
-                  <p>Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.</p>
-                </div>
-                <div class="step">
-                  <b>Switch to molds</b>
-                  <p>A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.</p>
-                </div>
-                <div class="step">
-                  <b>Three iterations</b>
-                  <p>Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.</p>
-                </div>
-              </div>
-
-              
-              <div class="car" id="car">
-                <div class="track" id="track">
-                  <div class="slide">
-                    <div class="frame">
-                      <img src="media/molds.jpg" alt="Three pairs of 3D-printed molds in blue, orange and yellow, with an orange and a yellow inner core and two cast silicone fingers">
-                    </div>
-                    <p>Three mold sets: yellow (1), orange (2), blue (3). The working fingers were cast from mold 2.</p>
-                  </div>
-                  <div class="slide">
-                    <div class="frame">
-                      <img src="media/iter1-cast.jpg" alt="A yellow printed core next to a cast silicone part with torn, uneven edges">
-                    </div>
-                    <p>Iteration 1: the core, and a cast with torn edges and distortion.</p>
-                  </div>
-                  <div class="slide">
-                    <div class="frame">
-                      <img src="media/glue.jpg" alt="A hand pressing a syringe to inject silicone into a yellow printed mold held shut with clamps">
-                    </div>
-                    <p>Casting: silicone injected with a syringe into a yellow mold held shut with clamps.</p>
-                  </div>
-                  <div class="slide">
-                    <div class="frame">
-                      <img src="media/clamp.jpg" alt="Two silicone fingers gripping a small blue toggle switch on a wooden desk">
-                    </div>
-                    <p>The finished fingers closing on a toggle switch.</p>
-                  </div>
-                </div>
-                <div class="ctl">
-                  <button id="prev" aria-label="Previous">‹</button>
-                  <button id="next" aria-label="Next">›</button>
-                  <div class="dots" id="dots"></div>
-                </div>
-              </div>
-
-              
-              <div class="vids">
-                <div>
-                  <div class="frame">
-                    <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" controls muted loop playsinline preload="none"></video>
-                  </div>
-                  <p>Manual actuation with a syringe.</p>
-                </div>
-                <div>
-                  <div class="frame">
-                    <video aria-label="The gripper closes on a small toggle switch and lifts it off the table" src="media/grip.mp4" poster="media/grip-poster.jpg" controls muted loop playsinline preload="none"></video>
-                  </div>
-                  <p>The gripper lifting a real object.</p>
-                </div>
-              </div>
-
-              
-              <div class="note">
-                <div>
-                  <h3>What isn’t known</h3>
-                  <p>The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.</p>
-                </div>
-                <div>
-                  <h3>Next</h3>
-                  <p>Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="pp" id="pp2" data-p="2" inert>
-          <div class="pw">
-            <div class="in">
-              <div class="proj-head">
-                <div>
-                  <h3>ESP32-C3 mobile robot</h3>
-                  <div class="tag">Personal project, learning ML on a real machine</div>
-                </div>
-                <p class="lead">A small differential-drive robot that started with hard-coded reflexes. The goal now is a controller learned from my own driving, and a fair test of whether it beats the reflex version.</p>
-              </div>
-
-              <div class="steps">
-                <div class="step">
-                  <b>Reflexes first</b>
-                  <p>A Braitenberg-style avoidance controller on four IR sensors. It proved the wiring and the mechanics, and it is the baseline the learned controller has to beat.</p>
-                </div>
-                <div class="step">
-                  <b>Rebuilding the chassis</b>
-                  <p>Version 1 had its heavy parts at the front and its drive wheels at the rear, so the wheels slipped in turns and the motors ran hot. Version 2 moved to an ESP32-C3, two 615 motors near the center and four wheels.</p>
-                </div>
-                <div class="step">
-                  <b>Measuring before collecting</b>
-                  <p>Sensor noise is about 6 counts, but the gain differs between sensors and shifts 5–35% between sessions. Running the motors raises the jitter 10–40 times, so I added filter capacitors and still have to repeat the test.</p>
-                </div>
-              </div>
-
-              <div class="vids gal">
-                <div>
-                  <div class="frame" style="background:#f8f9fb">
-                    <img src="media/mm-cad.jpg" alt="CAD render of the first chassis: an ESP32 board, two drive wheels and a front caster" style="object-fit:contain">
-                  </div>
-                  <p>Version 1 in CAD.</p>
-                </div>
-                <div>
-                  <div class="frame">
-                    <img src="media/mm-v1.jpg" alt="Version 1 built: an ESP32 board, IR sensors on a perfboard fan, and two small wheels with a caster at the front">
-                  </div>
-                  <p>Version 1, built: IR sensors on a perfboard fan, drive wheels at the rear, a caster at the front.</p>
-                </div>
-                <div>
-                  <div class="frame">
-                    <img src="media/mm-v2.jpg" alt="Version 2 from above: a black printed chassis with two gearboxes, four small wheels and the sensor fan">
-                  </div>
-                  <p>Version 2: ESP32-C3, motors near the center, two wheels per side.</p>
-                </div>
-              </div>
-
-              <div class="vids vid-one">
-                <div>
-                  <div class="frame">
-                    <video aria-label="The robot driving through a white hand-made maze with orange corner markers, filmed from above" src="media/mm-maze.mp4" poster="media/mm-maze-poster.jpg" controls muted loop playsinline preload="none"></video>
-                  </div>
-                  <p>A test run in a hand-made maze.</p>
-                </div>
-              </div>
-
-              <div class="note">
-                <div>
-                  <h3>What isn’t known</h3>
-                  <p>Whether the learned controller beats the reflex baseline hasn’t been tested, because I haven’t recorded the first dataset yet. Part of the motor noise may be vibration and not electrical, and that is still not separated.</p>
-                </div>
-                <div>
-                  <h3>Next</h3>
-                  <p>A short pilot recording, then a decision tree or random forest and a small neural network trained on my driving, compared with the reflex controller in closed-loop runs. If the learned one doesn’t win, that is still a result.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section id="experience">
-        <h2>Experience</h2>
-        <div class="xp">
-          <div class="xr">
-            <div class="xw">2025 – 2026</div>
-            <div>
-              <h3>Technion Formula SAE: monocoque development team</h3>
-              <p>Structural redesign of a carbon-fibre monocoque concept: looking at failure points under bending and torsion, and adapting the design to carbon-fibre manufacturing.</p>
-            </div>
-          </div>
-          <div class="xr">
-            <div class="xw">2026 – present</div>
-            <div>
-              <h3>Research assistant, T‑Sail Lab, Technion</h3>
-            </div>
-          </div>
-        </div>
-
-        
-        <a class="btn" href="Eran_Buhbut_CV.pdf" download>Download CV (PDF)</a>
-      </section>
-
-      
-      <section id="maker">
-        <h2>MakerWorld</h2>
-        <div class="two">
-          <p>3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
-          <div class="links">
-            <a class="btn" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener">Open my MakerWorld profile</a>
-          </div>
-        </div>
-      </section>
-
-      
-      <section id="about">
-        <h2>About</h2>
-        <div class="about">
-          <div class="portrait"><img src="media/eran.jpg" alt="Eran Buhbut"></div>
-          <p>Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
-          <p>Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
-        </div>
-      </section>
-
-      
-      <section id="contact">
-        <h2>Contact</h2>
-        <div class="links">
-          <a class="cl" href="mailto:eranbuhbut3@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><span>eranbuhbut3@gmail.com</span></a>
-          <a class="cl" href="https://www.linkedin.com/in/eranbuhbut/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-6M12 13.5a3 3 0 0 1 6 0V17"/></svg><span>LinkedIn</span></a>
-          <a class="cl" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><span>MakerWorld</span></a>
-          <a class="cl" href="Eran_Buhbut_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span></a>
-        </div>
-      </section>
-
-      
-      <footer>© 2026 Eran Buhbut</footer>
-    </div>
-
-<script>
-
-
-
-const track = document.getElementById("track");
-const slideCount = track.children.length;
-const dots = document.getElementById("dots");
-let slide = 0;
-
-for (let k = 0; k < slideCount; k++) dots.appendChild(document.createElement("i"));
-
-function showSlide(n) {
-  slide = (n + slideCount) % slideCount;
-  track.style.transform = "translateX(" + -slide * 100 + "%)";
-  [...dots.children].forEach((dot, k) => dot.classList.toggle("on", k === slide));
-}
-
-document.getElementById("next").onclick = () => showSlide(slide + 1);
-document.getElementById("prev").onclick = () => showSlide(slide - 1);
-
-let touchStartX = null;
-track.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-track.addEventListener("touchend", e => {
-  if (touchStartX === null) return;
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 40) showSlide(slide + (dx < 0 ? 1 : -1));
-  touchStartX = null;
-});
-
-const cards = [...document.querySelectorAll(".pk")];
-const panels = [...document.querySelectorAll(".pp")];
-const reduceMotion = matchMedia("(prefers-reduced-motion:reduce)").matches;
-
-function openPanel(id) {
-  panels.forEach(panel => {
-    const open = panel.dataset.p === id;
-    panel.classList.toggle("open", open);
-    panel.inert = !open;
-  });
-  cards.forEach(card => card.setAttribute("aria-expanded", String(card.dataset.t === id)));
-}
-
-cards.forEach(card => card.onclick = () => {
-  const id = card.dataset.t;
-  const wasOpen = card.getAttribute("aria-expanded") === "true";
-  openPanel(wasOpen ? "0" : id);
-
-  
-  if (!wasOpen) {
-    setTimeout(() => {
-      document.getElementById("pp" + id).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    }, reduceMotion ? 0 : 580);
-  }
-});
-
-const topBar = document.querySelector("header");
-const menuButton = document.getElementById("menu");
-
-function closeMenu() {
-  topBar.classList.remove("open");
-  menuButton.setAttribute("aria-expanded", "false");
-}
-
-menuButton.onclick = () => {
-  const open = topBar.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", String(open));
-};
-
-document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", closeMenu));
-addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
-document.addEventListener("click", e => { if (!topBar.contains(e.target)) closeMenu(); });
-
-const header = document.querySelector("header");
-const sections = [...document.querySelectorAll("section[id]")];
-const navLinks = [...document.querySelectorAll("#nav a")];
-
-function markNav(id) {
-  navLinks.forEach(a => a.classList.toggle("cur", a.getAttribute("href") === "#" + id));
-}
-
-if ("IntersectionObserver" in window) {
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) markNav(e.target.id); });
-  }, { rootMargin: "-40% 0px -55% 0px" });
-  sections.forEach(sec => spy.observe(sec));
-
-}
-
-if (reduceMotion) {
-  const heroVideo = document.querySelector(".hero video");
-  heroVideo.removeAttribute("autoplay");
-  heroVideo.pause();
-  heroVideo.controls = true;
-}
-
-addEventListener("scroll", () => {
-  header.classList.toggle("stuck", scrollY > 8);
-  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) markNav(sections[sections.length - 1].id);
-}, { passive: true });
-
-openPanel("0");
-showSlide(0);
-</script>
-</body>
-</html>
+            <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on
