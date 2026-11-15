@@ -752,6 +752,20 @@ header nav a.cur {
     grid-template-columns: 1fr;
   }
 }
+.who {
+  margin: 34px 0 0;
+}
+.nm {
+  font-size: var(--t-title);
+}
+.rl {
+  font-size: var(--t-lead);
+  margin-top: 6px;
+}
+.lang {
+  display: inline-block;
+  text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -762,14 +776,14 @@ header nav a.cur {
 
         
         <nav id="nav">
-          <a href="#projects" data-k="nProj">Projects</a>
-          <a href="#experience" data-k="nExp">Experience</a>
-          <a href="#maker" data-k="nMaker">MakerWorld</a>
-          <a href="#about" data-k="nAbout">About</a>
-          <a href="#contact" data-k="nContact">Contact</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#maker">MakerWorld</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
         <div class="hr">
-          <button class="lang" id="lang" aria-label="Language">עברית</button>
+          <a class="lang" href="Eran_Buhbut_CV.pdf" download>CV</a>
           <button class="menu" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
         </div>
       </header>
@@ -779,27 +793,26 @@ header nav a.cur {
         <div>
 
           
+          
+
+          
+          <h1>Mechanical engineering, in <mark>practice.</mark></h1>
+
           <div class="who">
-            <div class="nm" data-k="brand">Eran Buhbut</div>
-            <div class="rl" data-k="role">Mechanical engineering student, Technion</div>
+            <div class="nm">Eran Buhbut</div>
+            <div class="rl">Mechanical engineering student, Technion</div>
           </div>
-
-          
-          <h1 data-k="h1">Mechanical engineering, in <mark>practice.</mark></h1>
-
-          
-          <p data-k="heroP">This is where I keep my own projects: what I built, what failed, and what I changed.</p>
         </div>
 
         
         <div class="frame">
-          <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" autoplay muted loop playsinline></video>
+          <video aria-label="A short loop: a soft gripper lifting a toggle switch, its fingers closing, and a close-up of a small robot" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline></video>
         </div>
       </div>
 
       
       <section id="projects">
-        <h2 data-k="projects">Projects</h2>
+        <h2>Projects</h2>
 
         
         <div class="pick">
@@ -809,20 +822,20 @@ header nav a.cur {
             </div>
             <div class="bd">
               <div>
-                <h3 data-k="p1t">Soft pneumatic gripper</h3>
-                <small data-k="p1c">Soft gripper closing on air pressure</small>
+                <h3>Soft pneumatic gripper</h3>
+                <small>Soft gripper closing on air pressure</small>
               </div>
-              <span class="st" data-k="p1s">Working POC</span>
+              <span class="st">Working POC</span>
             </div>
           </button>
           <button class="pk" data-t="2" aria-expanded="false" aria-controls="pp2">
             <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on a perfboard fan, a black printed chassis and four small wheels"></div>
             <div class="bd">
               <div>
-                <h3 data-k="p2t">ESP32-C3 mobile robot</h3>
-                <small data-k="p2c">Differential drive, IR sensors</small>
+                <h3>ESP32-C3 mobile robot</h3>
+                <small>Differential drive, IR sensors</small>
               </div>
-              <span class="st" data-k="p2s">In progress</span>
+              <span class="st">In progress</span>
             </div>
           </button>
         </div>
@@ -835,25 +848,25 @@ header nav a.cur {
               
               <div class="proj-head">
                 <div>
-                  <h3 data-k="p1t">Soft pneumatic gripper</h3>
-                  <div class="tag" data-k="p1tag">Personal project, no course, out of curiosity</div>
+                  <h3>Soft pneumatic gripper</h3>
+                  <div class="tag">Personal project, no course, out of curiosity</div>
                 </div>
-                <p class="lead" data-k="p1lead">Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.</p>
+                <p class="lead">Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.</p>
               </div>
 
               
               <div class="steps">
                 <div class="step">
-                  <b data-k="s1h">Direct TPU print</b>
-                  <p data-k="s1p">Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.</p>
+                  <b>Direct TPU print</b>
+                  <p>Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.</p>
                 </div>
                 <div class="step">
-                  <b data-k="s2h">Switch to molds</b>
-                  <p data-k="s2p">A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.</p>
+                  <b>Switch to molds</b>
+                  <p>A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.</p>
                 </div>
                 <div class="step">
-                  <b data-k="s3h">Three iterations</b>
-                  <p data-k="s3p">Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.</p>
+                  <b>Three iterations</b>
+                  <p>Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.</p>
                 </div>
               </div>
 
@@ -864,25 +877,25 @@ header nav a.cur {
                     <div class="frame">
                       <img src="media/molds.jpg" alt="Three pairs of 3D-printed molds in blue, orange and yellow, with an orange and a yellow inner core and two cast silicone fingers">
                     </div>
-                    <p data-k="c1">Three mold sets: yellow (1), orange (2), blue (3). The working fingers were cast from mold 2.</p>
+                    <p>Three mold sets: yellow (1), orange (2), blue (3). The working fingers were cast from mold 2.</p>
                   </div>
                   <div class="slide">
                     <div class="frame">
                       <img src="media/iter1-cast.jpg" alt="A yellow printed core next to a cast silicone part with torn, uneven edges">
                     </div>
-                    <p data-k="c2">Iteration 1: the core, and a cast with torn edges and distortion.</p>
+                    <p>Iteration 1: the core, and a cast with torn edges and distortion.</p>
                   </div>
                   <div class="slide">
                     <div class="frame">
                       <img src="media/glue.jpg" alt="A hand pressing a syringe to inject silicone into a yellow printed mold held shut with clamps">
                     </div>
-                    <p data-k="c3">Casting: silicone injected with a syringe into a yellow mold held shut with clamps.</p>
+                    <p>Casting: silicone injected with a syringe into a yellow mold held shut with clamps.</p>
                   </div>
                   <div class="slide">
                     <div class="frame">
                       <img src="media/clamp.jpg" alt="Two silicone fingers gripping a small blue toggle switch on a wooden desk">
                     </div>
-                    <p data-k="c4">The finished fingers closing on a toggle switch.</p>
+                    <p>The finished fingers closing on a toggle switch.</p>
                   </div>
                 </div>
                 <div class="ctl">
@@ -898,25 +911,25 @@ header nav a.cur {
                   <div class="frame">
                     <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" controls muted loop playsinline preload="none"></video>
                   </div>
-                  <p data-k="v1">Manual actuation with a syringe.</p>
+                  <p>Manual actuation with a syringe.</p>
                 </div>
                 <div>
                   <div class="frame">
                     <video aria-label="The gripper closes on a small toggle switch and lifts it off the table" src="media/grip.mp4" poster="media/grip-poster.jpg" controls muted loop playsinline preload="none"></video>
                   </div>
-                  <p data-k="v2">The gripper lifting a real object.</p>
+                  <p>The gripper lifting a real object.</p>
                 </div>
               </div>
 
               
               <div class="note">
                 <div>
-                  <h3 data-k="limH">What isn’t known</h3>
-                  <p data-k="limP">The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.</p>
+                  <h3>What isn’t known</h3>
+                  <p>The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.</p>
                 </div>
                 <div>
-                  <h3 data-k="nextH">Next</h3>
-                  <p data-k="nextP">Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.</p>
+                  <h3>Next</h3>
+                  <p>Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.</p>
                 </div>
               </div>
             </div>
@@ -929,24 +942,24 @@ header nav a.cur {
             <div class="in">
               <div class="proj-head">
                 <div>
-                  <h3 data-k="p2t">ESP32-C3 mobile robot</h3>
-                  <div class="tag" data-k="p2tag">Personal project, learning ML on a real machine</div>
+                  <h3>ESP32-C3 mobile robot</h3>
+                  <div class="tag">Personal project, learning ML on a real machine</div>
                 </div>
-                <p class="lead" data-k="p2p">A small differential-drive robot that started with hard-coded reflexes. The goal now is a controller learned from my own driving, and a fair test of whether it beats the reflex version.</p>
+                <p class="lead">A small differential-drive robot that started with hard-coded reflexes. The goal now is a controller learned from my own driving, and a fair test of whether it beats the reflex version.</p>
               </div>
 
               <div class="steps">
                 <div class="step">
-                  <b data-k="m1h">Reflexes first</b>
-                  <p data-k="m1p">A Braitenberg-style avoidance controller on four IR sensors. It proved the wiring and the mechanics, and it is the baseline the learned controller has to beat.</p>
+                  <b>Reflexes first</b>
+                  <p>A Braitenberg-style avoidance controller on four IR sensors. It proved the wiring and the mechanics, and it is the baseline the learned controller has to beat.</p>
                 </div>
                 <div class="step">
-                  <b data-k="m2h">Rebuilding the chassis</b>
-                  <p data-k="m2p">Version 1 had its heavy parts at the front and its drive wheels at the rear, so the wheels slipped in turns and the motors ran hot. Version 2 moved to an ESP32-C3, two 615 motors near the center and four wheels.</p>
+                  <b>Rebuilding the chassis</b>
+                  <p>Version 1 had its heavy parts at the front and its drive wheels at the rear, so the wheels slipped in turns and the motors ran hot. Version 2 moved to an ESP32-C3, two 615 motors near the center and four wheels.</p>
                 </div>
                 <div class="step">
-                  <b data-k="m3h">Measuring before collecting</b>
-                  <p data-k="m3p">Sensor noise is about 6 counts, but the gain differs between sensors and shifts 5–35% between sessions. Running the motors raises the jitter 10–40 times, so I added filter capacitors and still have to repeat the test.</p>
+                  <b>Measuring before collecting</b>
+                  <p>Sensor noise is about 6 counts, but the gain differs between sensors and shifts 5–35% between sessions. Running the motors raises the jitter 10–40 times, so I added filter capacitors and still have to repeat the test.</p>
                 </div>
               </div>
 
@@ -955,19 +968,19 @@ header nav a.cur {
                   <div class="frame" style="background:#f8f9fb">
                     <img src="media/mm-cad.jpg" alt="CAD render of the first chassis: an ESP32 board, two drive wheels and a front caster" style="object-fit:contain">
                   </div>
-                  <p data-k="g1">Version 1 in CAD.</p>
+                  <p>Version 1 in CAD.</p>
                 </div>
                 <div>
                   <div class="frame">
                     <img src="media/mm-v1.jpg" alt="Version 1 built: an ESP32 board, IR sensors on a perfboard fan, and two small wheels with a caster at the front">
                   </div>
-                  <p data-k="g2">Version 1, built: IR sensors on a perfboard fan, drive wheels at the rear, a caster at the front.</p>
+                  <p>Version 1, built: IR sensors on a perfboard fan, drive wheels at the rear, a caster at the front.</p>
                 </div>
                 <div>
                   <div class="frame">
                     <img src="media/mm-v2.jpg" alt="Version 2 from above: a black printed chassis with two gearboxes, four small wheels and the sensor fan">
                   </div>
-                  <p data-k="g3">Version 2: ESP32-C3, motors near the center, two wheels per side.</p>
+                  <p>Version 2: ESP32-C3, motors near the center, two wheels per side.</p>
                 </div>
               </div>
 
@@ -976,18 +989,18 @@ header nav a.cur {
                   <div class="frame">
                     <video aria-label="The robot driving through a white hand-made maze with orange corner markers, filmed from above" src="media/mm-maze.mp4" poster="media/mm-maze-poster.jpg" controls muted loop playsinline preload="none"></video>
                   </div>
-                  <p data-k="mv1">A test run in a hand-made maze.</p>
+                  <p>A test run in a hand-made maze.</p>
                 </div>
               </div>
 
               <div class="note">
                 <div>
-                  <h3 data-k="mlH">What isn’t known</h3>
-                  <p data-k="mlP">Whether the learned controller beats the reflex baseline hasn’t been tested, because I haven’t recorded the first dataset yet. Part of the motor noise may be vibration and not electrical, and that is still not separated.</p>
+                  <h3>What isn’t known</h3>
+                  <p>Whether the learned controller beats the reflex baseline hasn’t been tested, because I haven’t recorded the first dataset yet. Part of the motor noise may be vibration and not electrical, and that is still not separated.</p>
                 </div>
                 <div>
-                  <h3 data-k="mnH">Next</h3>
-                  <p data-k="mnP">A short pilot recording, then a decision tree or random forest and a small neural network trained on my driving, compared with the reflex controller in closed-loop runs. If the learned one doesn’t win, that is still a result.</p>
+                  <h3>Next</h3>
+                  <p>A short pilot recording, then a decision tree or random forest and a small neural network trained on my driving, compared with the reflex controller in closed-loop runs. If the learned one doesn’t win, that is still a result.</p>
                 </div>
               </div>
             </div>
@@ -997,163 +1010,65 @@ header nav a.cur {
 
       
       <section id="experience">
-        <h2 data-k="exp">Experience</h2>
+        <h2>Experience</h2>
         <div class="xp">
           <div class="xr">
-            <div class="xw" data-k="x1d">2025 – 2026</div>
+            <div class="xw">2025 – 2026</div>
             <div>
-              <h3 data-k="x1t">Technion Formula SAE: monocoque development team</h3>
-              <p data-k="x1p">Structural redesign of a carbon-fibre monocoque concept: looking at failure points under bending and torsion, and adapting the design to carbon-fibre manufacturing.</p>
+              <h3>Technion Formula SAE: monocoque development team</h3>
+              <p>Structural redesign of a carbon-fibre monocoque concept: looking at failure points under bending and torsion, and adapting the design to carbon-fibre manufacturing.</p>
             </div>
           </div>
           <div class="xr">
-            <div class="xw" data-k="x2d">2026 – present</div>
+            <div class="xw">2026 – present</div>
             <div>
-              <h3 data-k="x2t">Research assistant, T-Sail Lab, Technion</h3>
+              <h3>Research assistant, T-Sail Lab, Technion</h3>
             </div>
           </div>
         </div>
 
         
-        <a class="btn" href="Eran_Buhbut_CV.pdf" download data-k="cvb">Download CV (PDF)</a>
+        <a class="btn" href="Eran_Buhbut_CV.pdf" download>Download CV (PDF)</a>
       </section>
 
       
       <section id="maker">
         <h2>MakerWorld</h2>
         <div class="two">
-          <p data-k="mkP">3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
+          <p>3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
           <div class="links">
-            <a class="big" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener" data-k="mkL">Open my MakerWorld profile</a>
+            <a class="big" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener">Open my MakerWorld profile</a>
           </div>
         </div>
       </section>
 
       
       <section id="about">
-        <h2 data-k="about">About</h2>
+        <h2>About</h2>
         <div class="two">
-          <p data-k="abP">Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
-          <p data-k="abT">Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
+          <p>Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
+          <p>Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
         </div>
       </section>
 
       
       <section id="contact">
-        <h2 data-k="contact">Contact</h2>
+        <h2>Contact</h2>
         <div class="links">
           <a class="cl" href="mailto:eranbuhbut3@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><span>eranbuhbut3@gmail.com</span></a>
           <a class="cl" href="https://www.linkedin.com/in/eranbuhbut/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-6M12 13.5a3 3 0 0 1 6 0V17"/></svg><span>LinkedIn</span></a>
           <a class="cl" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><span>MakerWorld</span></a>
-          <a class="cl" href="Eran_Buhbut_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span data-k="cv">CV</span></a>
+          <a class="cl" href="Eran_Buhbut_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span></a>
         </div>
       </section>
 
       
-      <footer data-k="foot">© 2026 Eran Buhbut</footer>
+      <footer>© 2026 Eran Buhbut</footer>
     </div>
 
 <script>
 
-const HE = {
-  nProj: "פרויקטים",
-  nExp: "ניסיון",
-  nMaker: "MakerWorld",
-  nAbout: "עליי",
-  nContact: "קשר",
 
-  brand: "ערן בוחבוט",
-  role: "סטודנט להנדסת מכונות, הטכניון",
-  h1: "הנדסת מכונות, <mark>הלכה למעשה.</mark>",
-  heroP: "כאן אני אוסף את הפרויקטים שלי: מה בניתי, מה לא עבד, ומה שיניתי.",
-
-  projects: "פרויקטים",
-  p1t: "לופתן פניאומטי רך",
-  p1c: "לופתן רך שנסגר מלחץ אוויר",
-  p1s: "פועל (POC)",
-  p2t: "רובוט נייד על ESP32-C3",
-  p2c: "הנעה דיפרנציאלית, חיישני IR",
-  p2s: "בבנייה",
-
-  p1tag: "פרויקט אישי, ללא קורס, מתוך סקרנות",
-  p1lead: "אוויר דחוס, גיאומטריה לא סימטרית ותנועת כפיפה. לופתן מסוג PneuNet שנסגר מלחץ של מזרק ידני, לא דולף, ומצליח להרים עצם אמיתי.",
-  s1h: "הדפסה ישירה ב-TPU",
-  s1p: "האוויר דלף בין השכבות. הדפסה בזווית של 45° פתרה גישור, אבל סיכנה צימוד כפיפה-פיתול בגלל כיווניות קווי ההדפסה.",
-  s2h: "מעבר לתבניות",
-  s2p: "תבנית PETG עם ליבה פנימית ויציקת סיליקון. אותה נקבוביות הופיעה גם בחלקי ה-PETG, ונאטמה בשכבה דקה של סיליקון.",
-  s3h: "שלוש איטרציות",
-  s3p: "פחות חריצים, אחר כך דופן עבה יותר. חליצה כמו כפפה עבדה באיטרציה 2 וקרעה את הסיליקון באיטרציה 3.",
-  c1: "שלוש סדרות תבניות: צהוב (1), כתום (2), כחול (3). האצבעות הפועלות יצוקות מתבנית 2.",
-  c2: "איטרציה 1: הליבה, ויציקה עם קצוות קרועים ועיוות.",
-  c3: "יציקה: סיליקון מוזרק במזרק לתבנית צהובה הסגורה במלחציים.",
-  c4: "האצבעות המוגמרות נסגרות על מתג.",
-  v1: "הפעלה ידנית עם מזרק.",
-  v2: "הלופתן מרים עצם אמיתי.",
-  limH: "מה לא יודעים",
-  limP: "הסיליקון הוא ערכת יצירה זולה בלי נתוני חומר, ולכן התוצאות איכותיות בלבד. הדופן הדקה נפתרה בכיול התושבת ובהוספת סיליקון ידנית היכן שצריך.",
-  nextH: "הצעד הבא",
-  nextP: "אוטומציה: בקר Arduino, מנוע DC ומנגנון שיניים-וגל משונן שדוחף את בוכנת המזרק. בגרסה הבאה של התבנית: ליבה מחולקת או ליבה מודפסת ב-PVA שמתמוססת במים.",
-
-  p2p: "רובוט הנעה דיפרנציאלית קטן שהתחיל מרפלקסים קבועים בקוד. המטרה עכשיו היא בקר שלומד מהנהיגה שלי, ובדיקה הוגנת אם הוא מנצח את גרסת הרפלקסים.",
-  p2tag: "פרויקט אישי, ללמוד למידת מכונה על מכונה אמיתית",
-  m1h: "קודם רפלקסים",
-  m1p: "בקר הימנעות בסגנון ברייטנברג על ארבעה חיישני IR. הוא הוכיח שהחיווט והמכניקה עובדים, והוא קו הבסיס שהבקר הלומד צריך לנצח.",
-  m2h: "בניית השלדה מחדש",
-  m2p: "בגרסה 1 החלקים הכבדים היו מלפנים וגלגלי ההינע מאחור, ולכן הגלגלים החליקו בפניות והמנועים התחממו. בגרסה 2 עברתי ל-ESP32-C3, שני מנועי 615 ליד מרכז הרובוט וארבעה גלגלים.",
-  m3h: "למדוד לפני שאוספים נתונים",
-  m3p: "רעש החיישנים הוא בערך 6 יחידות, אבל ההגבר שונה בין החיישנים ומשתנה ב-5–35% בין סשנים. כשהמנועים פועלים הרעש עולה פי 10–40, אז הוספתי קבלים מסננים ועוד צריך לחזור על הבדיקה.",
-  g1: "גרסה 1 ב-CAD.",
-  g2: "גרסה 1 אחרי הבנייה: חיישני IR במניפה על לוח מחורר, גלגלי הינע מאחור וגלגל תומך מלפנים.",
-  g3: "גרסה 2: ESP32-C3, המנועים ליד המרכז, שני גלגלים בכל צד.",
-  mv1: "ריצת בדיקה במבוך שבניתי.",
-  mlH: "מה לא ידוע",
-  mlP: "עוד לא נבדק אם הבקר הלומד מנצח את קו הבסיס של הרפלקסים, כי עוד לא הקלטתי את סט הנתונים הראשון. ייתכן שחלק מרעש המנועים הוא רעידות ולא רעש חשמלי, וזה עדיין לא הופרד.",
-  mnH: "הבא",
-  mnP: "הקלטת פיילוט קצרה, ואז עץ החלטה או יער אקראי ורשת נוירונים קטנה שמאומנים על הנהיגה שלי, ומושווים לבקר הרפלקסים בריצות במעגל סגור. אם הבקר הלומד לא מנצח, זו עדיין תוצאה.",
-
-  exp: "ניסיון",
-  x1d: "2025 – 2026",
-  x1t: "פורמולה SAE בטכניון: צוות פיתוח המונוקוק",
-  x1p: "עיצוב מחדש של מבנה מונוקוק מסיבי פחמן: בחינת נקודות כשל תחת כפיפה ופיתול, והתאמת התכן לייצור מסיבי פחמן.",
-  x2d: "2026 – היום",
-  x2t: "עוזר מחקר, מעבדת T-Sail, הטכניון",
-  cvb: "הורדת קורות חיים (PDF)",
-
-  mkP: "מודלים להדפסה תלת-ממדית שעיצבתי. כאן יופיעו המודלים הבולטים, עם מספרי הורדות והדפסות אמיתיים.",
-  mkL: "לפרופיל ב-MakerWorld",
-
-  about: "עליי",
-  abP: "סטודנט להנדסת מכונות בטכניון (מאז 2023, סיום צפוי ב-2028). לפני ההנדסה עסקתי כשבע שנים ביצירת וידאו ומוזיקה באופן עצמאי.",
-  abT: "כלים: PTC Creo (מתקדם), SolidWorks (בינוני), הדפסת FDM, בקרים (ESP32, Arduino), Python (בסיסי).",
-  contact: "יצירת קשר",
-  cv: "קורות חיים",
-
-  foot: "© 2026 ערן בוחבוט"
-};
-
-const langButton = document.getElementById("lang");
-
-function setLang(lang) {
-  const isHebrew = lang === "he";
-
-  
-  document.documentElement.lang = lang;
-  document.documentElement.dir = isHebrew ? "rtl" : "ltr";
-
-  
-  document.querySelectorAll("[data-k]").forEach(el => {
-    if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
-    el.innerHTML = isHebrew && HE[el.dataset.k] !== undefined ? HE[el.dataset.k] : el.dataset.en;
-  });
-
-  
-  langButton.textContent = isHebrew ? "English" : "עברית";
-
-  
-  showSlide(slide);
-}
-
-langButton.onclick = () => setLang(document.documentElement.lang === "he" ? "en" : "he");
 
 const track = document.getElementById("track");
 const slideCount = track.children.length;
@@ -1164,8 +1079,7 @@ for (let k = 0; k < slideCount; k++) dots.appendChild(document.createElement("i"
 
 function showSlide(n) {
   slide = (n + slideCount) % slideCount;
-  const rtl = document.documentElement.dir === "rtl";
-  track.style.transform = "translateX(" + (rtl ? 1 : -1) * slide * 100 + "%)";
+  track.style.transform = "translateX(" + -slide * 100 + "%)";
   [...dots.children].forEach((dot, k) => dot.classList.toggle("on", k === slide));
 }
 
@@ -1177,8 +1091,7 @@ track.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; 
 track.addEventListener("touchend", e => {
   if (touchStartX === null) return;
   const dx = e.changedTouches[0].clientX - touchStartX;
-  const rtl = document.documentElement.dir === "rtl";
-  if (Math.abs(dx) > 40) showSlide(slide + ((dx < 0) !== rtl ? 1 : -1));
+  if (Math.abs(dx) > 40) showSlide(slide + (dx < 0 ? 1 : -1));
   touchStartX = null;
 });
 
@@ -1269,7 +1182,7 @@ addEventListener("scroll", () => {
 }, { passive: true });
 
 openPanel("0");
-setLang("en");
+showSlide(0);
 </script>
 </body>
 </html>
