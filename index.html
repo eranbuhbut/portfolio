@@ -908,4 +908,327 @@ body::after {
             </div>
           </button>
           <button class="pk" data-t="2" aria-expanded="false" aria-controls="pp2">
-            <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on
+            <div class="th"><img src="media/mm-card.jpg" alt="Top view of the second version of a small robot: IR sensors on a perfboard fan, a black printed chassis and four small wheels"></div>
+            <div class="bd">
+              <div>
+                <h3>ESP32-C3 mobile robot</h3>
+                <small>Differential drive, IR sensors</small>
+              </div>
+              <span class="st">In progress</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="pp" id="pp1" data-p="1" inert>
+          <div class="pw">
+            <div class="in">
+              <div class="proj-head">
+                <div>
+                  <h3>Soft pneumatic gripper</h3>
+                  <div class="tag">Personal project, no course, out of curiosity</div>
+                </div>
+                <p class="lead">Compressed air, an asymmetric geometry and a bending motion. A PneuNet gripper that closes from a hand-pushed syringe, holds pressure, and lifts a real object.</p>
+              </div>
+
+              <div class="steps">
+                <div class="step">
+                  <b>Direct TPU print</b>
+                  <p>Air leaked between layers. Printing at 45° solved the bridging but risked bending-torsion coupling from the print-line anisotropy.</p>
+                </div>
+                <div class="step">
+                  <b>Switch to molds</b>
+                  <p>A PETG mold with an inner core, and cast silicone. The same porosity showed up in the PETG parts and was sealed with a thin silicone coat.</p>
+                </div>
+                <div class="step">
+                  <b>Three iterations</b>
+                  <p>Fewer slots, then a thicker wall. Peeling off like a glove worked in iteration 2 and tore the silicone in iteration 3.</p>
+                </div>
+              </div>
+
+              <div class="car" id="car">
+                <div class="track" id="track">
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/molds.jpg" alt="Three pairs of 3D-printed molds in blue, orange and yellow, with an orange and a yellow inner core and two cast silicone fingers">
+                    </div>
+                    <p>Three mold sets: yellow (1), orange (2), blue (3). The working fingers were cast from mold 2.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/iter1-cast.jpg" alt="A yellow printed core next to a cast silicone part with torn, uneven edges">
+                    </div>
+                    <p>Iteration 1: the core, and a cast with torn edges and distortion.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/glue.jpg" alt="A hand pressing a syringe to inject silicone into a yellow printed mold held shut with clamps">
+                    </div>
+                    <p>Casting: silicone injected with a syringe into a yellow mold held shut with clamps.</p>
+                  </div>
+                  <div class="slide">
+                    <div class="frame">
+                      <img src="media/clamp.jpg" alt="Two silicone fingers gripping a small blue toggle switch on a wooden desk">
+                    </div>
+                    <p>The finished fingers closing on a toggle switch.</p>
+                  </div>
+                </div>
+                <div class="ctl">
+                  <button id="prev" aria-label="Previous">‹</button>
+                  <button id="next" aria-label="Next">›</button>
+                  <div class="dots" id="dots"></div>
+                </div>
+              </div>
+
+              <div class="vids">
+                <div>
+                  <div class="frame">
+                    <video aria-label="The gripper fingers bend inward as a hand presses a syringe" src="media/actuation.mp4" poster="media/actuation-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p>Manual actuation with a syringe.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <video aria-label="The gripper closes on a small toggle switch and lifts it off the table" src="media/grip.mp4" poster="media/grip-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p>The gripper lifting a real object.</p>
+                </div>
+              </div>
+
+              <div class="note">
+                <div>
+                  <h3>What isn’t known</h3>
+                  <p>The silicone is a cheap craft kit with no material data, so results are qualitative only. The thin wall was fixed by calibrating the inner holder and adding silicone by hand where needed.</p>
+                </div>
+                <div>
+                  <h3>Next</h3>
+                  <p>Automation: an Arduino, a DC motor and a rack and pinion pushing the syringe plunger. For the next mold: a segmented core, or a core printed in PVA that dissolves in water.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pp" id="pp2" data-p="2" inert>
+          <div class="pw">
+            <div class="in">
+              <div class="proj-head">
+                <div>
+                  <h3>ESP32-C3 mobile robot</h3>
+                  <div class="tag">Personal project, learning ML on a real machine</div>
+                </div>
+                <p class="lead">A small differential-drive robot that started with hard-coded reflexes. The goal now is a controller learned from my own driving, and a fair test of whether it beats the reflex version.</p>
+              </div>
+
+              <div class="steps">
+                <div class="step">
+                  <b>Reflexes first</b>
+                  <p>A Braitenberg-style avoidance controller on four IR sensors. It proved the wiring and the mechanics, and it is the baseline the learned controller has to beat.</p>
+                </div>
+                <div class="step">
+                  <b>Rebuilding the chassis</b>
+                  <p>Version 1 had its heavy parts at the front and its drive wheels at the rear, so the wheels slipped in turns and the motors ran hot. Version 2 moved to an ESP32-C3, two 615 motors near the center and four wheels.</p>
+                </div>
+                <div class="step">
+                  <b>Measuring before collecting</b>
+                  <p>Sensor noise is about 6 counts, but the gain differs between sensors and shifts 5–35% between sessions. Running the motors raises the jitter 10–40 times, so I added filter capacitors and still have to repeat the test.</p>
+                </div>
+              </div>
+
+              <div class="vids gal">
+                <div>
+                  <div class="frame" style="background:#f8f9fb">
+                    <img src="media/mm-cad.jpg" alt="CAD render of the first chassis: an ESP32 board, two drive wheels and a front caster" style="object-fit:contain">
+                  </div>
+                  <p>Version 1 in CAD.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <img src="media/mm-v1.jpg" alt="Version 1 built: an ESP32 board, IR sensors on a perfboard fan, and two small wheels with a caster at the front">
+                  </div>
+                  <p>Version 1, built: IR sensors on a perfboard fan, drive wheels at the rear, a caster at the front.</p>
+                </div>
+                <div>
+                  <div class="frame">
+                    <img src="media/mm-v2.jpg" alt="Version 2 from above: a black printed chassis with two gearboxes, four small wheels and the sensor fan">
+                  </div>
+                  <p>Version 2: ESP32-C3, motors near the center, two wheels per side.</p>
+                </div>
+              </div>
+
+              <div class="vids vid-one">
+                <div>
+                  <div class="frame">
+                    <video aria-label="The robot driving through a white hand-made maze with orange corner markers, filmed from above" src="media/mm-maze.mp4" poster="media/mm-maze-poster.jpg" controls muted loop playsinline preload="none"></video>
+                  </div>
+                  <p>A test run in a hand-made maze.</p>
+                </div>
+              </div>
+
+              <div class="note">
+                <div>
+                  <h3>What isn’t known</h3>
+                  <p>Whether the learned controller beats the reflex baseline hasn’t been tested, because I haven’t recorded the first dataset yet. Part of the motor noise may be vibration and not electrical, and that is still not separated.</p>
+                </div>
+                <div>
+                  <h3>Next</h3>
+                  <p>A short pilot recording, then a decision tree or random forest and a small neural network trained on my driving, compared with the reflex controller in closed-loop runs. If the learned one doesn’t win, that is still a result.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="xp">
+          <div class="xr">
+            <div class="xw">2025 – 2026</div>
+            <div>
+              <h3>Technion Formula SAE: monocoque development team</h3>
+              <p>Structural redesign of a carbon-fibre monocoque concept: looking at failure points under bending and torsion, and adapting the design to carbon-fibre manufacturing.</p>
+            </div>
+          </div>
+          <div class="xr">
+            <div class="xw">2026 – present</div>
+            <div>
+              <h3>Research assistant, T‑Sail Lab, Technion</h3>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn" href="Eran_Buhbut_CV.pdf" download>Download CV (PDF)</a>
+      </section>
+
+      <section id="maker">
+        <h2>MakerWorld</h2>
+        <div class="two">
+          <p>3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
+          <div class="links">
+            <a class="btn" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener">Open my MakerWorld profile</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>About</h2>
+        <div class="about">
+          <div class="portrait"><img src="media/eran.jpg" alt="Eran Buhbut"></div>
+          <p>Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
+          <p>Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="links">
+          <a class="cl" href="mailto:eranbuhbut3@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><span>eranbuhbut3@gmail.com</span></a>
+          <a class="cl" href="https://www.linkedin.com/in/eranbuhbut/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-6M12 13.5a3 3 0 0 1 6 0V17"/></svg><span>LinkedIn</span></a>
+          <a class="cl" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><span>MakerWorld</span></a>
+          <a class="cl" href="Eran_Buhbut_CV.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span></a>
+        </div>
+      </section>
+
+      <footer>© 2026 Eran Buhbut</footer>
+    </div>
+
+<script>
+const track = document.getElementById("track");
+const slideCount = track.children.length;
+const dots = document.getElementById("dots");
+let slide = 0;
+
+for (let k = 0; k < slideCount; k++) dots.appendChild(document.createElement("i"));
+
+function showSlide(n) {
+  slide = (n + slideCount) % slideCount;
+  track.style.transform = "translateX(" + -slide * 100 + "%)";
+  [...dots.children].forEach((dot, k) => dot.classList.toggle("on", k === slide));
+}
+
+document.getElementById("next").onclick = () => showSlide(slide + 1);
+document.getElementById("prev").onclick = () => showSlide(slide - 1);
+
+let touchStartX = null;
+track.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener("touchend", e => {
+  if (touchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 40) showSlide(slide + (dx < 0 ? 1 : -1));
+  touchStartX = null;
+});
+
+const cards = [...document.querySelectorAll(".pk")];
+const panels = [...document.querySelectorAll(".pp")];
+const reduceMotion = matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+function openPanel(id) {
+  panels.forEach(panel => {
+    const open = panel.dataset.p === id;
+    panel.classList.toggle("open", open);
+    panel.inert = !open;
+  });
+  cards.forEach(card => card.setAttribute("aria-expanded", String(card.dataset.t === id)));
+}
+
+cards.forEach(card => card.onclick = () => {
+  const id = card.dataset.t;
+  const wasOpen = card.getAttribute("aria-expanded") === "true";
+  openPanel(wasOpen ? "0" : id);
+
+  if (!wasOpen) {
+    setTimeout(() => {
+      document.getElementById("pp" + id).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }, reduceMotion ? 0 : 580);
+  }
+});
+
+const topBar = document.querySelector("header");
+const menuButton = document.getElementById("menu");
+
+function closeMenu() {
+  topBar.classList.remove("open");
+  menuButton.setAttribute("aria-expanded", "false");
+}
+
+menuButton.onclick = () => {
+  const open = topBar.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
+};
+
+document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", closeMenu));
+addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+document.addEventListener("click", e => { if (!topBar.contains(e.target)) closeMenu(); });
+
+const header = document.querySelector("header");
+const sections = [...document.querySelectorAll("section[id]")];
+const navLinks = [...document.querySelectorAll("#nav a")];
+
+function markNav(id) {
+  navLinks.forEach(a => a.classList.toggle("cur", a.getAttribute("href") === "#" + id));
+}
+
+if ("IntersectionObserver" in window) {
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) markNav(e.target.id); });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  sections.forEach(sec => spy.observe(sec));
+}
+
+if (reduceMotion) {
+  const heroVideo = document.querySelector(".hero video");
+  heroVideo.removeAttribute("autoplay");
+  heroVideo.pause();
+  heroVideo.controls = true;
+}
+
+addEventListener("scroll", () => {
+  header.classList.toggle("stuck", scrollY > 8);
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) markNav(sections[sections.length - 1].id);
+}, { passive: true });
+
+openPanel("0");
+showSlide(0);
+</script>
+</body>
+</html>
