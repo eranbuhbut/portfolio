@@ -971,6 +971,109 @@ header.stuck {
 header.stuck::before {
   opacity: 1;
 }
+.sub {
+  font-size: var(--t-sub);
+  font-weight: 500;
+  margin: 88px 0 10px;
+}
+.subp {
+  color: var(--mut);
+  margin: 0 0 28px;
+}
+.dsg-wrap {
+  display: grid;
+  gap: 36px;
+  align-items: start;
+}
+.dsgp {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 28px;
+}
+.dsg {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dsg th,
+.dsg td {
+  text-align: start;
+  vertical-align: top;
+  padding: 22px 22px 22px 0;
+  font-weight: 400;
+}
+.dsg thead th {
+  padding-block: 16px;
+  font-size: var(--t-small);
+  color: var(--mut);
+}
+.dsg tbody tr {
+  border-top: 1px solid var(--line);
+}
+.dsg tbody th {
+  font-weight: 500;
+}
+.dsg tbody th a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.dsg tbody th a:hover {
+  color: var(--blue);
+}
+.dsg td {
+  color: var(--mut);
+}
+.dsgfig {
+  margin: 0;
+}
+.dsgfig img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  border-bottom: 4px solid var(--blue);
+}
+.dsgfig figcaption {
+  margin-top: 10px;
+  font-size: var(--t-small);
+  color: var(--mut);
+}
+@media (min-width:821px) {
+  .dsg-wrap {
+    grid-template-columns: minmax(0,1fr) 320px;
+  }
+}
+@media (max-width:820px) {
+  .sub {
+    margin-top: 64px;
+  }
+  .dsgp {
+    padding: 0 20px;
+  }
+  .dsg thead {
+    display: none;
+  }
+  .dsg tbody tr {
+    display: block;
+    padding: 20px 0;
+  }
+  .dsg tbody tr:first-child {
+    border-top: 0;
+  }
+  .dsg th,
+  .dsg td {
+    display: block;
+    padding: 4px 0;
+  }
+  .dsg td::before {
+    content: attr(data-l);
+    display: block;
+    font-size: var(--t-small);
+    margin-top: 6px;
+  }
+}
 </style>
 </head>
 <body>
@@ -983,7 +1086,6 @@ header.stuck::before {
         <nav id="nav">
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
-          <a href="#maker">MakerWorld</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -1213,6 +1315,42 @@ header.stuck::before {
             </div>
           </div>
         </div>
+        <h3 class="sub">Published designs</h3>
+        <p class="subp">Small parts I designed to fit an existing object, published on MakerWorld.</p>
+        <div class="dsg-wrap">
+          <div class="dsgp">
+            <table class="dsg">
+              <thead>
+                <tr><th scope="col">Part</th><th scope="col">Constraint</th><th scope="col">Decision</th><th scope="col">Material</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="https://makerworld.com/en/models/3049558-technics-sl-q2-replacement-foot-pla-tpu#profileId-3430482" target="_blank" rel="noopener">Technics SL-Q2 replacement foot</a></th>
+                  <td data-l="Constraint">Dimensions taken from an original foot; reuses the original mounting screw.</td>
+                  <td data-l="Decision">Two parts: a rigid shell and a TPU insert intended for vibration damping.</td>
+                  <td data-l="Material">PLA and TPU 95A</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://makerworld.com/en/models/3139527-caddx-vista-camera-adapter-for-modern-o4-mounts" target="_blank" rel="noopener">Caddx Vista adapter for O4 mounts</a></th>
+                  <td data-l="Constraint">Same outer footprint as O4 adapters; inner cavity sized to the camera with no play.</td>
+                  <td data-l="Decision">Heat-resistant material, because the camera runs hot and PLA can warp.</td>
+                  <td data-l="Material">PETG, ABS or ASA</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://makerworld.com/en/models/3563295-aeropress-travel-storage-insert-beans-filters" target="_blank" rel="noopener">AeroPress travel insert</a></th>
+                  <td data-l="Constraint">Fills the empty space inside the plunger.</td>
+                  <td data-l="Decision">A thread for the beans and a tab-and-slot lock for the filters, so both compartments can’t be opened at once.</td>
+                  <td data-l="Material">PETG</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="dsgfig">
+            <img src="media/technics-foot.jpg" alt="A 3D-printed blue replacement foot next to the black original Technics foot">
+            <figcaption>The replacement foot (left) next to the original.</figcaption>
+          </figure>
+        </div>
+
       </section>
 
       
@@ -1236,17 +1374,6 @@ header.stuck::before {
 
         
         <a class="btn" href="Eran_Buhbut_CV.pdf" download>Download CV (PDF)</a>
-      </section>
-
-      
-      <section id="maker">
-        <h2>MakerWorld</h2>
-        <div class="two">
-          <p>3D-printable models I designed. The standout models will appear here, with real download and print counts.</p>
-          <div class="links">
-            <a class="btn" href="https://makerworld.com/en/@EranBuhbut3" target="_blank" rel="noopener">Open my MakerWorld profile</a>
-          </div>
-        </div>
       </section>
 
       
