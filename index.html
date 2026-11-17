@@ -1092,6 +1092,48 @@ header.stuck::before {
     grid-template-columns: 1fr;
   }
 }
+.skl {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 24px;
+}
+.skl > div {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.skl > div:first-child {
+  border-top: 0;
+}
+.skl h3 {
+  margin: 0;
+  font-size: var(--t-small);
+  font-weight: 400;
+  color: var(--mut);
+  padding-top: 3px;
+}
+.skl ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.skl li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.skl li + li {
+  margin-top: 8px;
+}
+.skl em {
+  font-style: normal;
+  font-size: var(--t-small);
+  color: var(--mut);
+  padding-top: 3px;
+}
 </style>
 </head>
 <body>
@@ -1410,7 +1452,33 @@ header.stuck::before {
         <div class="about">
           <div class="portrait"><img src="media/eran.jpg" alt="Eran Buhbut"></div>
           <p>Mechanical engineering student at the Technion (since 2023, expected graduation 2028). Before engineering I spent about seven years making video and music independently.</p>
-          <p>Tools: PTC Creo (advanced), SolidWorks (intermediate), FDM 3D printing, microcontrollers (ESP32, Arduino), Python (basic).</p>
+          <div class="skl">
+            <div>
+              <h3>CAD</h3>
+              <ul>
+                <li><span>PTC Creo</span><em>Advanced</em></li>
+                <li><span>SolidWorks</span><em>Intermediate</em></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Fabrication</h3>
+              <ul>
+                <li><span>FDM 3D printing</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Electronics</h3>
+              <ul>
+                <li><span>Microcontrollers (ESP32, Arduino)</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Code</h3>
+              <ul>
+                <li><span>Python</span><em>Basic</em></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
